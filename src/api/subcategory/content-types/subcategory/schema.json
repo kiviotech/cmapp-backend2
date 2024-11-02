@@ -22,6 +22,12 @@
       "relation": "oneToMany",
       "target": "api::category.category",
       "mappedBy": "subcategory"
+    },
+    "tasks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::task.task",
+      "mappedBy": "subcategory"
     }
   }
 }

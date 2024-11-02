@@ -1,0 +1,53 @@
+{
+  "kind": "collectionType",
+  "collectionName": "access_controls",
+  "info": {
+    "singularName": "access-control",
+    "pluralName": "access-controls",
+    "displayName": "Access Controls",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Task_Submission": {
+      "type": "boolean"
+    },
+    "View_Submission": {
+      "type": "boolean"
+    },
+    "Reject_submission": {
+      "type": "boolean"
+    },
+    "Approve_Submission": {
+      "type": "boolean"
+    },
+    "Approve_Requests": {
+      "type": "boolean"
+    },
+    "View_Requests": {
+      "type": "boolean"
+    },
+    "Reject_Requests": {
+      "type": "boolean"
+    },
+    "Create_Project": {
+      "type": "boolean"
+    },
+    "Role": {
+      "type": "enumeration",
+      "enum": [
+        "Project_team",
+        "Contractor"
+      ]
+    },
+    "user_groups": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::user-group.user-group",
+      "mappedBy": "access_control"
+    }
+  }
+}

@@ -695,7 +695,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
   options: {
     draftAndPublish: false;
-    timestamps: true;
   };
   attributes: {
     username: Attribute.String &
@@ -728,6 +727,16 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'plugin::users-permissions.user',
       'oneToMany',
       'api::task.task'
+    >;
+    designation: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'manyToOne',
+      'api::designation.designation'
+    >;
+    projects: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'oneToMany',
+      'api::project.project'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -835,6 +844,50 @@ export interface PluginCustomApiCustomApi extends Schema.CollectionType {
   };
 }
 
+export interface ApiAccessControlAccessControl extends Schema.CollectionType {
+  collectionName: 'access_controls';
+  info: {
+    singularName: 'access-control';
+    pluralName: 'access-controls';
+    displayName: 'Access Controls';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Task_Submission: Attribute.Boolean;
+    View_Submission: Attribute.Boolean;
+    Reject_submission: Attribute.Boolean;
+    Approve_Submission: Attribute.Boolean;
+    Approve_Requests: Attribute.Boolean;
+    View_Requests: Attribute.Boolean;
+    Reject_Requests: Attribute.Boolean;
+    Create_Project: Attribute.Boolean;
+    Role: Attribute.Enumeration<['Project_team', 'Contractor']>;
+    user_groups: Attribute.Relation<
+      'api::access-control.access-control',
+      'manyToMany',
+      'api::user-group.user-group'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::access-control.access-control',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::access-control.access-control',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiCategoryCategory extends Schema.CollectionType {
   collectionName: 'categories';
   info: {
@@ -933,12 +986,54 @@ export interface ApiContractorContractor extends Schema.CollectionType {
   };
 }
 
+export interface ApiDesignationDesignation extends Schema.CollectionType {
+  collectionName: 'designations';
+  info: {
+    singularName: 'designation';
+    pluralName: 'designations';
+    displayName: 'Designations';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Name: Attribute.String;
+    Description: Attribute.Text;
+    user_group: Attribute.Relation<
+      'api::designation.designation',
+      'oneToOne',
+      'api::user-group.user-group'
+    >;
+    users: Attribute.Relation<
+      'api::designation.designation',
+      'oneToMany',
+      'plugin::users-permissions.user'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::designation.designation',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::designation.designation',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiProjectProject extends Schema.CollectionType {
   collectionName: 'projects';
   info: {
     singularName: 'project';
     pluralName: 'projects';
     displayName: 'Project';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -958,6 +1053,13 @@ export interface ApiProjectProject extends Schema.CollectionType {
       'oneToMany',
       'api::registration.registration'
     >;
+    user: Attribute.Relation<
+      'api::project.project',
+      'manyToOne',
+      'plugin::users-permissions.user'
+    >;
+    documents: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    start_date: Attribute.Date;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -988,7 +1090,7 @@ export interface ApiRegistrationRegistration extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    fullName: Attribute.String;
+    username: Attribute.String;
     socialSecurityNumber: Attribute.BigInteger;
     email: Attribute.Email;
     project: Attribute.Relation<
@@ -1008,6 +1110,11 @@ export interface ApiRegistrationRegistration extends Schema.CollectionType {
       Attribute.SetMinMaxLength<{
         minLength: 8;
       }>;
+    sub_contractor: Attribute.Relation<
+      'api::registration.registration',
+      'oneToOne',
+      'api::sub-contractor.sub-contractor'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1062,6 +1169,48 @@ export interface ApiStageStage extends Schema.CollectionType {
   };
 }
 
+export interface ApiSubContractorSubContractor extends Schema.CollectionType {
+  collectionName: 'sub_contractors';
+  info: {
+    singularName: 'sub-contractor';
+    pluralName: 'sub-contractors';
+    displayName: 'SubContractor';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    description: Attribute.Text;
+    registration: Attribute.Relation<
+      'api::sub-contractor.sub-contractor',
+      'oneToOne',
+      'api::registration.registration'
+    >;
+    task: Attribute.Relation<
+      'api::sub-contractor.sub-contractor',
+      'oneToOne',
+      'api::task.task'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::sub-contractor.sub-contractor',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::sub-contractor.sub-contractor',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiSubcategorySubcategory extends Schema.CollectionType {
   collectionName: 'subcategories';
   info: {
@@ -1079,6 +1228,11 @@ export interface ApiSubcategorySubcategory extends Schema.CollectionType {
       'api::subcategory.subcategory',
       'oneToMany',
       'api::category.category'
+    >;
+    tasks: Attribute.Relation<
+      'api::subcategory.subcategory',
+      'oneToMany',
+      'api::task.task'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1188,12 +1342,61 @@ export interface ApiTaskTask extends Schema.CollectionType {
       'oneToMany',
       'api::submission.submission'
     >;
+    sub_contractor: Attribute.Relation<
+      'api::task.task',
+      'oneToOne',
+      'api::sub-contractor.sub-contractor'
+    >;
+    subcategory: Attribute.Relation<
+      'api::task.task',
+      'manyToOne',
+      'api::subcategory.subcategory'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<'api::task.task', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::task.task', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiUserGroupUserGroup extends Schema.CollectionType {
+  collectionName: 'user_groups';
+  info: {
+    singularName: 'user-group';
+    pluralName: 'user-groups';
+    displayName: 'User_Group';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    access_control: Attribute.Relation<
+      'api::user-group.user-group',
+      'manyToMany',
+      'api::access-control.access-control'
+    >;
+    designation: Attribute.Relation<
+      'api::user-group.user-group',
+      'oneToOne',
+      'api::designation.designation'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::user-group.user-group',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::user-group.user-group',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
   };
 }
@@ -1217,15 +1420,19 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::custom-api.custom-api': PluginCustomApiCustomApi;
+      'api::access-control.access-control': ApiAccessControlAccessControl;
       'api::category.category': ApiCategoryCategory;
       'api::consultant.consultant': ApiConsultantConsultant;
       'api::contractor.contractor': ApiContractorContractor;
+      'api::designation.designation': ApiDesignationDesignation;
       'api::project.project': ApiProjectProject;
       'api::registration.registration': ApiRegistrationRegistration;
       'api::stage.stage': ApiStageStage;
+      'api::sub-contractor.sub-contractor': ApiSubContractorSubContractor;
       'api::subcategory.subcategory': ApiSubcategorySubcategory;
       'api::submission.submission': ApiSubmissionSubmission;
       'api::task.task': ApiTaskTask;
+      'api::user-group.user-group': ApiUserGroupUserGroup;
     }
   }
 }

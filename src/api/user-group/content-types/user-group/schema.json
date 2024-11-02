@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_groups",
+  "info": {
+    "singularName": "user-group",
+    "pluralName": "user-groups",
+    "displayName": "User_Group"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "access_control": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::access-control.access-control",
+      "inversedBy": "user_groups"
+    },
+    "designation": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::designation.designation",
+      "inversedBy": "user_group"
+    }
+  }
+}

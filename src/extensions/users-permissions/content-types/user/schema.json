@@ -9,8 +9,7 @@
     "displayName": "User"
   },
   "options": {
-    "draftAndPublish": false,
-    "timestamps": true
+    "draftAndPublish": false
   },
   "attributes": {
     "username": {
@@ -71,6 +70,18 @@
       "relation": "oneToMany",
       "target": "api::task.task",
       "mappedBy": "approver"
+    },
+    "designation": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::designation.designation",
+      "inversedBy": "users"
+    },
+    "projects": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::project.project",
+      "mappedBy": "user"
     }
   }
 }

@@ -85,6 +85,18 @@
       "relation": "oneToMany",
       "target": "api::submission.submission",
       "mappedBy": "task"
+    },
+    "sub_contractor": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::sub-contractor.sub-contractor",
+      "inversedBy": "task"
+    },
+    "subcategory": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::subcategory.subcategory",
+      "inversedBy": "tasks"
     }
   }
 }
