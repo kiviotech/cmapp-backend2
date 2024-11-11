@@ -36,7 +36,7 @@
       "enum": [
         "pending",
         "approved",
-        "declined"
+        "rejected"
       ]
     },
     "task": {

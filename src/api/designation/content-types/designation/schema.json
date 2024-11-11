@@ -22,12 +22,6 @@
       "relation": "oneToOne",
       "target": "api::user-group.user-group",
       "mappedBy": "designation"
-    },
-    "users": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "plugin::users-permissions.user",
-      "mappedBy": "designation"
     }
   }
 }

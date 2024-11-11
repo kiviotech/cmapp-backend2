@@ -4,7 +4,8 @@
   "info": {
     "singularName": "subcategory",
     "pluralName": "subcategories",
-    "displayName": "Subcategory"
+    "displayName": "Subcategory",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -17,16 +18,16 @@
     "description": {
       "type": "text"
     },
-    "categories": {
+    "category": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToOne",
       "target": "api::category.category",
-      "mappedBy": "subcategory"
+      "inversedBy": "subcategories"
     },
-    "tasks": {
+    "standard_tasks": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::task.task",
+      "target": "api::standard-task.standard-task",
       "mappedBy": "subcategory"
     }
   }

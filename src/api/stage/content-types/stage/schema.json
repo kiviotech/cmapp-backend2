@@ -4,7 +4,8 @@
   "info": {
     "singularName": "stage",
     "pluralName": "stages",
-    "displayName": "Stage"
+    "displayName": "Stage",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -17,10 +18,10 @@
     "description": {
       "type": "text"
     },
-    "tasks": {
+    "categories": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::task.task",
+      "target": "api::category.category",
       "mappedBy": "stage"
     }
   }

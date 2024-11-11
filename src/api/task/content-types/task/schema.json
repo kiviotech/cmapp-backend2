@@ -12,58 +12,30 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "name": {
-      "type": "string"
-    },
-    "description": {
-      "type": "text"
-    },
-    "status": {
-      "type": "enumeration",
-      "enum": [
-        "completed",
-        "not_completed",
-        "rejected"
-      ],
-      "default": "not_completed"
-    },
-    "image_url": {
-      "type": "string"
-    },
-    "rejection_comment": {
-      "type": "text"
-    },
-    "deadline": {
-      "type": "date"
-    },
-    "stage": {
+    "project": {
       "type": "relation",
       "relation": "manyToOne",
-      "target": "api::stage.stage",
+      "target": "api::project.project",
       "inversedBy": "tasks"
     },
-    "qa": {
-      "type": "text"
+    "standard_task": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::standard-task.standard-task"
     },
-    "qc": {
-      "type": "text"
+    "submissions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::submission.submission",
+      "mappedBy": "task"
+    },
+    "contractor": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::contractor.contractor",
+      "inversedBy": "tasks"
     },
     "documents": {
-      "type": "string"
-    },
-    "assigned_to": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "plugin::users-permissions.user",
-      "inversedBy": "tasks"
-    },
-    "approver": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "plugin::users-permissions.user",
-      "inversedBy": "tasks"
-    },
-    "docs": {
       "type": "media",
       "multiple": true,
       "required": false,
@@ -74,29 +46,18 @@
         "audios"
       ]
     },
-    "project": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::project.project",
-      "inversedBy": "tasks"
+    "task_status": {
+      "type": "enumeration",
+      "enum": [
+        "pending",
+        "ongoing",
+        "ahead",
+        "delayed",
+        "completed"
+      ]
     },
-    "submissions": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::submission.submission",
-      "mappedBy": "task"
-    },
-    "sub_contractor": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::sub-contractor.sub-contractor",
-      "inversedBy": "task"
-    },
-    "subcategory": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::subcategory.subcategory",
-      "inversedBy": "tasks"
+    "due_date": {
+      "type": "date"
     }
   }
 }

@@ -723,20 +723,10 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'manyToOne',
       'plugin::users-permissions.role'
     >;
-    tasks: Attribute.Relation<
-      'plugin::users-permissions.user',
-      'oneToMany',
-      'api::task.task'
-    >;
-    designation: Attribute.Relation<
+    user_group: Attribute.Relation<
       'plugin::users-permissions.user',
       'manyToOne',
-      'api::designation.designation'
-    >;
-    projects: Attribute.Relation<
-      'plugin::users-permissions.user',
-      'oneToMany',
-      'api::project.project'
+      'api::user-group.user-group'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -901,9 +891,14 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
   attributes: {
     name: Attribute.String;
     description: Attribute.Text;
-    subcategory: Attribute.Relation<
+    stage: Attribute.Relation<
       'api::category.category',
       'manyToOne',
+      'api::stage.stage'
+    >;
+    subcategories: Attribute.Relation<
+      'api::category.category',
+      'oneToMany',
       'api::subcategory.subcategory'
     >;
     createdAt: Attribute.DateTime;
@@ -961,13 +956,36 @@ export interface ApiContractorContractor extends Schema.CollectionType {
     singularName: 'contractor';
     pluralName: 'contractors';
     displayName: 'Contractor';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    name: Attribute.String;
-    contact_info: Attribute.String;
+    username: Attribute.String;
+    socialSecurityNumber: Attribute.BigInteger;
+    email: Attribute.Email;
+    projects: Attribute.Relation<
+      'api::contractor.contractor',
+      'manyToMany',
+      'api::project.project'
+    >;
+    documents: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    sub_contractor: Attribute.Relation<
+      'api::contractor.contractor',
+      'oneToOne',
+      'api::sub-contractor.sub-contractor'
+    >;
+    tasks: Attribute.Relation<
+      'api::contractor.contractor',
+      'oneToMany',
+      'api::task.task'
+    >;
+    user: Attribute.Relation<
+      'api::contractor.contractor',
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1004,11 +1022,6 @@ export interface ApiDesignationDesignation extends Schema.CollectionType {
       'oneToOne',
       'api::user-group.user-group'
     >;
-    users: Attribute.Relation<
-      'api::designation.designation',
-      'oneToMany',
-      'plugin::users-permissions.user'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1041,25 +1054,29 @@ export interface ApiProjectProject extends Schema.CollectionType {
   attributes: {
     name: Attribute.String;
     description: Attribute.Text;
-    update_status: Attribute.String;
-    deadline: Attribute.Date;
+    end_date: Attribute.Date;
+    start_date: Attribute.Date;
     tasks: Attribute.Relation<
       'api::project.project',
       'oneToMany',
       'api::task.task'
     >;
-    registrations: Attribute.Relation<
+    project_type: Attribute.String;
+    location: Attribute.Text;
+    contractors: Attribute.Relation<
       'api::project.project',
-      'oneToMany',
-      'api::registration.registration'
+      'manyToMany',
+      'api::contractor.contractor'
     >;
-    user: Attribute.Relation<
-      'api::project.project',
-      'manyToOne',
-      'plugin::users-permissions.user'
+    project_status: Attribute.Enumeration<
+      ['pending', 'ongoing', 'ahead', 'delayed', 'completed']
     >;
     documents: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
-    start_date: Attribute.Date;
+    approver: Attribute.Relation<
+      'api::project.project',
+      'manyToOne',
+      'api::project-team.project-team'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1071,6 +1088,51 @@ export interface ApiProjectProject extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::project.project',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiProjectTeamProjectTeam extends Schema.CollectionType {
+  collectionName: 'project_teams';
+  info: {
+    singularName: 'project-team';
+    pluralName: 'project-teams';
+    displayName: 'Project_Team';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    projects: Attribute.Relation<
+      'api::project-team.project-team',
+      'oneToMany',
+      'api::project.project'
+    >;
+    user_group: Attribute.Relation<
+      'api::project-team.project-team',
+      'oneToOne',
+      'api::user-group.user-group'
+    >;
+    users: Attribute.Relation<
+      'api::project-team.project-team',
+      'oneToMany',
+      'plugin::users-permissions.user'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::project-team.project-team',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::project-team.project-team',
       'oneToOne',
       'admin::user'
     > &
@@ -1093,11 +1155,6 @@ export interface ApiRegistrationRegistration extends Schema.CollectionType {
     username: Attribute.String;
     socialSecurityNumber: Attribute.BigInteger;
     email: Attribute.Email;
-    project: Attribute.Relation<
-      'api::registration.registration',
-      'manyToOne',
-      'api::project.project'
-    >;
     documents: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
     approver: Attribute.Relation<
       'api::registration.registration',
@@ -1139,6 +1196,7 @@ export interface ApiStageStage extends Schema.CollectionType {
     singularName: 'stage';
     pluralName: 'stages';
     displayName: 'Stage';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1146,10 +1204,10 @@ export interface ApiStageStage extends Schema.CollectionType {
   attributes: {
     name: Attribute.String;
     description: Attribute.Text;
-    tasks: Attribute.Relation<
+    categories: Attribute.Relation<
       'api::stage.stage',
       'oneToMany',
-      'api::task.task'
+      'api::category.category'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1162,6 +1220,43 @@ export interface ApiStageStage extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::stage.stage',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiStandardTaskStandardTask extends Schema.CollectionType {
+  collectionName: 'standard_tasks';
+  info: {
+    singularName: 'standard-task';
+    pluralName: 'standard-tasks';
+    displayName: 'Standard_task';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Name: Attribute.String;
+    Description: Attribute.Text;
+    subcategory: Attribute.Relation<
+      'api::standard-task.standard-task',
+      'manyToOne',
+      'api::subcategory.subcategory'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::standard-task.standard-task',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::standard-task.standard-task',
       'oneToOne',
       'admin::user'
     > &
@@ -1188,10 +1283,10 @@ export interface ApiSubContractorSubContractor extends Schema.CollectionType {
       'oneToOne',
       'api::registration.registration'
     >;
-    task: Attribute.Relation<
+    contractor: Attribute.Relation<
       'api::sub-contractor.sub-contractor',
       'oneToOne',
-      'api::task.task'
+      'api::contractor.contractor'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1217,6 +1312,7 @@ export interface ApiSubcategorySubcategory extends Schema.CollectionType {
     singularName: 'subcategory';
     pluralName: 'subcategories';
     displayName: 'Subcategory';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1224,15 +1320,15 @@ export interface ApiSubcategorySubcategory extends Schema.CollectionType {
   attributes: {
     name: Attribute.String;
     description: Attribute.Text;
-    categories: Attribute.Relation<
+    category: Attribute.Relation<
       'api::subcategory.subcategory',
-      'oneToMany',
+      'manyToOne',
       'api::category.category'
     >;
-    tasks: Attribute.Relation<
+    standard_tasks: Attribute.Relation<
       'api::subcategory.subcategory',
       'oneToMany',
-      'api::task.task'
+      'api::standard-task.standard-task'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1270,7 +1366,7 @@ export interface ApiSubmissionSubmission extends Schema.CollectionType {
       true
     >;
     count: Attribute.Integer & Attribute.Required & Attribute.DefaultTo<0>;
-    status: Attribute.Enumeration<['pending', 'approved', 'declined']>;
+    status: Attribute.Enumeration<['pending', 'approved', 'rejected']>;
     task: Attribute.Relation<
       'api::submission.submission',
       'manyToOne',
@@ -1306,52 +1402,31 @@ export interface ApiTaskTask extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    name: Attribute.String;
-    description: Attribute.Text;
-    status: Attribute.Enumeration<['completed', 'not_completed', 'rejected']> &
-      Attribute.DefaultTo<'not_completed'>;
-    image_url: Attribute.String;
-    rejection_comment: Attribute.Text;
-    deadline: Attribute.Date;
-    stage: Attribute.Relation<
-      'api::task.task',
-      'manyToOne',
-      'api::stage.stage'
-    >;
-    qa: Attribute.Text;
-    qc: Attribute.Text;
-    documents: Attribute.String;
-    assigned_to: Attribute.Relation<
-      'api::task.task',
-      'manyToOne',
-      'plugin::users-permissions.user'
-    >;
-    approver: Attribute.Relation<
-      'api::task.task',
-      'manyToOne',
-      'plugin::users-permissions.user'
-    >;
-    docs: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
     project: Attribute.Relation<
       'api::task.task',
       'manyToOne',
       'api::project.project'
+    >;
+    standard_task: Attribute.Relation<
+      'api::task.task',
+      'oneToOne',
+      'api::standard-task.standard-task'
     >;
     submissions: Attribute.Relation<
       'api::task.task',
       'oneToMany',
       'api::submission.submission'
     >;
-    sub_contractor: Attribute.Relation<
-      'api::task.task',
-      'oneToOne',
-      'api::sub-contractor.sub-contractor'
-    >;
-    subcategory: Attribute.Relation<
+    contractor: Attribute.Relation<
       'api::task.task',
       'manyToOne',
-      'api::subcategory.subcategory'
+      'api::contractor.contractor'
     >;
+    documents: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    task_status: Attribute.Enumeration<
+      ['pending', 'ongoing', 'ahead', 'delayed', 'completed']
+    >;
+    due_date: Attribute.Date;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1368,6 +1443,7 @@ export interface ApiUserGroupUserGroup extends Schema.CollectionType {
     singularName: 'user-group';
     pluralName: 'user-groups';
     displayName: 'User_Group';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1382,6 +1458,11 @@ export interface ApiUserGroupUserGroup extends Schema.CollectionType {
       'api::user-group.user-group',
       'oneToOne',
       'api::designation.designation'
+    >;
+    users: Attribute.Relation<
+      'api::user-group.user-group',
+      'oneToMany',
+      'plugin::users-permissions.user'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1426,8 +1507,10 @@ declare module '@strapi/types' {
       'api::contractor.contractor': ApiContractorContractor;
       'api::designation.designation': ApiDesignationDesignation;
       'api::project.project': ApiProjectProject;
+      'api::project-team.project-team': ApiProjectTeamProjectTeam;
       'api::registration.registration': ApiRegistrationRegistration;
       'api::stage.stage': ApiStageStage;
+      'api::standard-task.standard-task': ApiStandardTaskStandardTask;
       'api::sub-contractor.sub-contractor': ApiSubContractorSubContractor;
       'api::subcategory.subcategory': ApiSubcategorySubcategory;
       'api::submission.submission': ApiSubmissionSubmission;

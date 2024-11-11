@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "standard_tasks",
+  "info": {
+    "singularName": "standard-task",
+    "pluralName": "standard-tasks",
+    "displayName": "Standard_task",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "subcategory": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::subcategory.subcategory",
+      "inversedBy": "standard_tasks"
+    }
+  }
+}

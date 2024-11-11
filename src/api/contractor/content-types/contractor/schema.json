@@ -4,18 +4,56 @@
   "info": {
     "singularName": "contractor",
     "pluralName": "contractors",
-    "displayName": "Contractor"
+    "displayName": "Contractor",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "name": {
+    "username": {
       "type": "string"
     },
-    "contact_info": {
-      "type": "string"
+    "socialSecurityNumber": {
+      "type": "biginteger"
+    },
+    "email": {
+      "type": "email"
+    },
+    "projects": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::project.project",
+      "inversedBy": "contractors"
+    },
+    "documents": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "sub_contractor": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::sub-contractor.sub-contractor",
+      "inversedBy": "contractor"
+    },
+    "tasks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::task.task",
+      "mappedBy": "contractor"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
     }
   }
 }

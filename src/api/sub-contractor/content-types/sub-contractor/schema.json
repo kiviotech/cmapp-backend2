@@ -24,10 +24,10 @@
       "target": "api::registration.registration",
       "mappedBy": "sub_contractor"
     },
-    "task": {
+    "contractor": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::task.task",
+      "target": "api::contractor.contractor",
       "mappedBy": "sub_contractor"
     }
   }

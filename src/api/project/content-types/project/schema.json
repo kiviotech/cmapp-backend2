@@ -18,10 +18,10 @@
     "description": {
       "type": "text"
     },
-    "update_status": {
-      "type": "string"
+    "end_date": {
+      "type": "date"
     },
-    "deadline": {
+    "start_date": {
       "type": "date"
     },
     "tasks": {
@@ -30,31 +30,43 @@
       "target": "api::task.task",
       "mappedBy": "project"
     },
-    "registrations": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::registration.registration",
-      "mappedBy": "project"
+    "project_type": {
+      "type": "string"
     },
-    "user": {
+    "location": {
+      "type": "text"
+    },
+    "contractors": {
       "type": "relation",
-      "relation": "manyToOne",
-      "target": "plugin::users-permissions.user",
-      "inversedBy": "projects"
+      "relation": "manyToMany",
+      "target": "api::contractor.contractor",
+      "mappedBy": "projects"
+    },
+    "project_status": {
+      "type": "enumeration",
+      "enum": [
+        "pending",
+        "ongoing",
+        "ahead",
+        "delayed",
+        "completed"
+      ]
     },
     "documents": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ]
+      ],
+      "type": "media",
+      "multiple": true
     },
-    "start_date": {
-      "type": "date"
+    "approver": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::project-team.project-team",
+      "inversedBy": "projects"
     }
   }
 }

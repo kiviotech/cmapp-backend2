@@ -17,11 +17,17 @@
     "description": {
       "type": "text"
     },
-    "subcategory": {
+    "stage": {
       "type": "relation",
       "relation": "manyToOne",
-      "target": "api::subcategory.subcategory",
+      "target": "api::stage.stage",
       "inversedBy": "categories"
+    },
+    "subcategories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::subcategory.subcategory",
+      "mappedBy": "category"
     }
   }
 }

@@ -21,12 +21,6 @@
     "email": {
       "type": "email"
     },
-    "project": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::project.project",
-      "inversedBy": "registrations"
-    },
     "documents": {
       "type": "media",
       "multiple": true,

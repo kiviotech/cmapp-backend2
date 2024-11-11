@@ -65,23 +65,11 @@
       "inversedBy": "users",
       "configurable": false
     },
-    "tasks": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::task.task",
-      "mappedBy": "approver"
-    },
-    "designation": {
+    "user_group": {
       "type": "relation",
       "relation": "manyToOne",
-      "target": "api::designation.designation",
+      "target": "api::user-group.user-group",
       "inversedBy": "users"
-    },
-    "projects": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::project.project",
-      "mappedBy": "user"
     }
   }
 }

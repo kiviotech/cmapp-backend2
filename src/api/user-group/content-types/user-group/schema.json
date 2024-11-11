@@ -4,7 +4,8 @@
   "info": {
     "singularName": "user-group",
     "pluralName": "user-groups",
-    "displayName": "User_Group"
+    "displayName": "User_Group",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -22,6 +23,12 @@
       "relation": "oneToOne",
       "target": "api::designation.designation",
       "inversedBy": "user_group"
+    },
+    "users": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "user_group"
     }
   }
 }
