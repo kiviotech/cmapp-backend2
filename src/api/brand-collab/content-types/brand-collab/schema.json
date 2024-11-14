@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "brand_collabs",
+  "info": {
+    "singularName": "brand-collab",
+    "pluralName": "brand-collabs",
+    "displayName": "Brand_Collab"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "collab_image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

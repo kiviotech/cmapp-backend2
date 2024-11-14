@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "milestones",
+  "info": {
+    "singularName": "milestone",
+    "pluralName": "milestones",
+    "displayName": "Milestone",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "amount": {
+      "type": "decimal"
+    },
+    "due_date": {
+      "type": "date"
+    },
+    "milestone_name": {
+      "type": "string"
+    },
+    "escrow": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::escrow.escrow",
+      "mappedBy": "milestone"
+    },
+    "level": {
+      "type": "enumeration",
+      "enum": [
+        "achieved",
+        "not_achieved"
+      ]
+    }
+  }
+}

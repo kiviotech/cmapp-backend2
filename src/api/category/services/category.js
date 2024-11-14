@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * category service
+ * category service.
  */
 
 const { createCoreService } = require('@strapi/strapi').factories;

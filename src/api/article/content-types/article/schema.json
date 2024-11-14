@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "articles",
+  "info": {
+    "singularName": "article",
+    "pluralName": "articles",
+    "displayName": "Article",
+    "description": "Create your blog content"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "brand_product": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::brand-product.brand-product",
+      "mappedBy": "brand_store"
+    },
+    "bid": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::bid.bid",
+      "mappedBy": "request"
+    },
+    "deliverable": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::deliverable.deliverable",
+      "mappedBy": "order"
+    }
+  }
+}

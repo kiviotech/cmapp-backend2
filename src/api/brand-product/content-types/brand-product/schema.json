@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "brand_products",
+  "info": {
+    "singularName": "brand-product",
+    "pluralName": "brand-products",
+    "displayName": "BrandProduct",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "product_name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "stock": {
+      "type": "integer"
+    },
+    "brand_store": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::brand-store.brand-store",
+      "inversedBy": "brand_product"
+    }
+  }
+}

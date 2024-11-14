@@ -1,0 +1,67 @@
+{
+  "kind": "collectionType",
+  "collectionName": "payments",
+  "info": {
+    "singularName": "payment",
+    "pluralName": "payments",
+    "displayName": "Payment",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "payment_method": {
+      "type": "enumeration",
+      "enum": [
+        "Payment Method",
+        "Credit Card",
+        "Debit Card",
+        "PayPal",
+        "Bank Transfer",
+        "Cash",
+        "Mobile Payment",
+        "Gift Card",
+        "Cryptocurrency",
+        "Check",
+        "Digital Wallet"
+      ]
+    },
+    "amount": {
+      "type": "decimal"
+    },
+    "escrow": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::escrow.escrow",
+      "mappedBy": "payment"
+    },
+    "level": {
+      "type": "enumeration",
+      "enum": [
+        "sent",
+        "pending",
+        "failed"
+      ]
+    },
+    "order": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::order.order",
+      "inversedBy": "payment"
+    },
+    "paymentDate": {
+      "type": "datetime"
+    },
+    "razorpay_order_id": {
+      "type": "string"
+    },
+    "razorpay_payment_id": {
+      "type": "string"
+    },
+    "razorpay_signature": {
+      "type": "string"
+    }
+  }
+}

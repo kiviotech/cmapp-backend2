@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "deliverables",
+  "info": {
+    "singularName": "deliverable",
+    "pluralName": "deliverables",
+    "displayName": "Deliverable",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "description": {
+      "type": "text"
+    },
+    "file_path": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "level": {
+      "type": "enumeration",
+      "enum": [
+        "delivered",
+        "pending"
+      ]
+    }
+  }
+}

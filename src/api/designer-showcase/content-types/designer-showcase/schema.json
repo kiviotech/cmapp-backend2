@@ -1,0 +1,57 @@
+{
+  "kind": "collectionType",
+  "collectionName": "designer_showcases",
+  "info": {
+    "singularName": "designer-showcase",
+    "pluralName": "designer-showcases",
+    "displayName": "DesignerShowcase",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "item_name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "showcase_rating": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::showcase-rating.showcase-rating",
+      "inversedBy": "designer_showcase"
+    },
+    "location": {
+      "type": "string"
+    },
+    "skills": {
+      "type": "enumeration",
+      "enum": [
+        "Fashion design",
+        "illustration",
+        "pattern making",
+        "sewing",
+        "tech packs"
+      ]
+    }
+  }
+}

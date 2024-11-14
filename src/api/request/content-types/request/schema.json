@@ -1,0 +1,64 @@
+{
+  "kind": "collectionType",
+  "collectionName": "requests",
+  "info": {
+    "singularName": "request",
+    "pluralName": "requests",
+    "displayName": "Request",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "description": {
+      "type": "text"
+    },
+    "item_type": {
+      "type": "enumeration",
+      "enum": [
+        "T-Shirt",
+        "Jeans",
+        "Dress",
+        "Jacket",
+        "Sweater",
+        "Shorts",
+        "Skirt",
+        "Shirt",
+        "Blazer",
+        "Coat"
+      ]
+    },
+    "budget": {
+      "type": "integer"
+    },
+    "deadline": {
+      "type": "date"
+    },
+    "escrow": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::escrow.escrow",
+      "mappedBy": "request"
+    },
+    "bid": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::bid.bid",
+      "mappedBy": "request"
+    },
+    "level": {
+      "type": "enumeration",
+      "enum": [
+        "completed",
+        "not-completed"
+      ]
+    },
+    "customer_id": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    }
+  }
+}

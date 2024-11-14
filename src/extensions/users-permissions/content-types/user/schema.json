@@ -9,8 +9,7 @@
     "displayName": "User"
   },
   "options": {
-    "draftAndPublish": false,
-    "timestamps": true
+    "draftAndPublish": false
   },
   "attributes": {
     "username": {
@@ -66,11 +65,47 @@
       "inversedBy": "users",
       "configurable": false
     },
-    "tasks": {
+    "bid": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::bid.bid",
+      "mappedBy": "users_permissions_user"
+    },
+    "chat": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::chat.chat",
+      "mappedBy": "users_permissions_user"
+    },
+    "brand_store": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::brand-store.brand-store",
+      "mappedBy": "user_id"
+    },
+    "review": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::review.review",
+      "mappedBy": "reviewee_id"
+    },
+    "showcase_rating": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::showcase-rating.showcase-rating",
+      "mappedBy": "user_id"
+    },
+    "shipping_infos": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::task.task",
-      "mappedBy": "approver"
+      "target": "api::shipping-info.shipping-info",
+      "mappedBy": "user"
+    },
+    "orders": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::order.order",
+      "mappedBy": "user"
     }
   }
 }

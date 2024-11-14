@@ -1,0 +1,59 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "singularName": "order",
+    "pluralName": "orders",
+    "displayName": "Order",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "level": {
+      "type": "enumeration",
+      "enum": [
+        "approved",
+        "pending"
+      ]
+    },
+    "total": {
+      "type": "decimal"
+    },
+    "razorpayOrderId": {
+      "type": "text"
+    },
+    "razorpayPaymentId": {
+      "type": "text"
+    },
+    "razorpaySignature": {
+      "type": "text"
+    },
+    "order_items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::order-item.order-item",
+      "mappedBy": "order"
+    },
+    "payment": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::payment.payment",
+      "mappedBy": "order"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "orders"
+    },
+    "shipping_info": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::shipping-info.shipping-info"
+    }
+    
+  }
+}

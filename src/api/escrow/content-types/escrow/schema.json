@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "escrows",
+  "info": {
+    "singularName": "escrow",
+    "pluralName": "escrows",
+    "displayName": "Escrow",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "total_amount": {
+      "type": "decimal"
+    },
+    "level": {
+      "type": "enumeration",
+      "enum": [
+        "pending",
+        "approved"
+      ]
+    },
+    "request": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::request.request",
+      "inversedBy": "escrow"
+    },
+    "payment": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::payment.payment",
+      "inversedBy": "escrow"
+    },
+    "milestone": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::milestone.milestone",
+      "inversedBy": "escrow"
+    }
+  }
+}
