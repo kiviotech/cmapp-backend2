@@ -485,6 +485,7 @@ export interface PluginUsersPermissionsUser
       'api::shipping-info.shipping-info'
     >;
     orders: Schema.Attribute.Relation<'oneToMany', 'api::order.order'>;
+    profile: Schema.Attribute.Relation<'oneToOne', 'api::profile.profile'>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -1156,6 +1157,42 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiProfileProfile extends Struct.CollectionTypeSchema {
+  collectionName: 'profiles';
+  info: {
+    singularName: 'profile';
+    pluralName: 'profiles';
+    displayName: 'Profile';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    profile_img: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    username: Schema.Attribute.String;
+    name: Schema.Attribute.String;
+    users_permissions_user: Schema.Attribute.Relation<
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::profile.profile'
+    >;
+  };
+}
+
 export interface ApiRequestRequest extends Struct.CollectionTypeSchema {
   collectionName: 'requests';
   info: {
@@ -1709,6 +1746,7 @@ declare module '@strapi/strapi' {
       'api::order-item.order-item': ApiOrderItemOrderItem;
       'api::payment.payment': ApiPaymentPayment;
       'api::product.product': ApiProductProduct;
+      'api::profile.profile': ApiProfileProfile;
       'api::request.request': ApiRequestRequest;
       'api::review.review': ApiReviewReview;
       'api::shipping-info.shipping-info': ApiShippingInfoShippingInfo;
