@@ -10390,6 +10390,11 @@ strapi-plugin-custom-api@^1.0.6:
   resolved "https://registry.npmjs.org/strapi-plugin-custom-api/-/strapi-plugin-custom-api-1.0.6.tgz"
   integrity sha512-15JGKhHvYsilAjYFjz0VX2LIN9DRkADb6Ex/l0//skoXWbDzmOdapyUg4mhp6vkq8ehBpd0ba48prAMxokCUXg==
 
+strapi-plugin-email@^0.0.0:
+  version "0.0.0"
+  resolved "https://registry.npmjs.org/strapi-plugin-email/-/strapi-plugin-email-0.0.0.tgz"
+  integrity sha512-KHhKXo1uMz0FeU2cLJyhSU9sBFUgnvKajPE89i99AJ5/nh7gPSiQRBKJX3mUznhgTapKtcgvtbUKmxtaoccZxQ==
+
 strapi4-models-relation-diagram@^1.1.3:
   version "1.1.3"
   resolved "https://registry.npmjs.org/strapi4-models-relation-diagram/-/strapi4-models-relation-diagram-1.1.3.tgz"

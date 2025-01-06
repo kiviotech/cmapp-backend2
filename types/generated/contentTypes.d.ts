@@ -1068,15 +1068,15 @@ export interface ApiProjectProject extends Schema.CollectionType {
       'manyToMany',
       'api::contractor.contractor'
     >;
-    project_status: Attribute.Enumeration<
-      ['pending', 'ongoing', 'ahead', 'delayed', 'completed']
-    >;
-    documents: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
     approver: Attribute.Relation<
       'api::project.project',
       'manyToOne',
       'api::project-team.project-team'
     >;
+    project_status: Attribute.Enumeration<
+      ['pending', 'ongoing', 'ahead', 'delayed', 'completed']
+    >;
+    documents: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1107,20 +1107,15 @@ export interface ApiProjectTeamProjectTeam extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    projects: Attribute.Relation<
-      'api::project-team.project-team',
-      'oneToMany',
-      'api::project.project'
-    >;
-    user_group: Attribute.Relation<
-      'api::project-team.project-team',
-      'oneToOne',
-      'api::user-group.user-group'
-    >;
     users: Attribute.Relation<
       'api::project-team.project-team',
       'oneToMany',
       'plugin::users-permissions.user'
+    >;
+    projects: Attribute.Relation<
+      'api::project-team.project-team',
+      'oneToMany',
+      'api::project.project'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1172,6 +1167,7 @@ export interface ApiRegistrationRegistration extends Schema.CollectionType {
       'oneToOne',
       'api::sub-contractor.sub-contractor'
     >;
+    notification_status: Attribute.Enumeration<['unread', 'read']>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1366,12 +1362,13 @@ export interface ApiSubmissionSubmission extends Schema.CollectionType {
       true
     >;
     count: Attribute.Integer & Attribute.Required & Attribute.DefaultTo<0>;
-    status: Attribute.Enumeration<['pending', 'approved', 'rejected']>;
+    status: Attribute.Enumeration<['pending', 'approved', 'declined']>;
     task: Attribute.Relation<
       'api::submission.submission',
       'manyToOne',
       'api::task.task'
     >;
+    notification_status: Attribute.Enumeration<['unread', 'read']>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
