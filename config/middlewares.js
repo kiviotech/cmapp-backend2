@@ -6,7 +6,7 @@ module.exports = ({ env }) => [
   {
     name: 'strapi::cors',
     config: {
-      origin: ['https://cmapp.kivio.in/','http://localhost:8081','*'], // Add your Angular app URLs here
+      origin: ['https://cmapp.kivio.in','http://localhost:8081'], // Add your Angular app URLs here
       methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
     },
   },
