@@ -55,6 +55,13 @@
       "relation": "oneToOne",
       "target": "api::sub-contractor.sub-contractor",
       "inversedBy": "registration"
+    },
+    "notification_status": {
+      "type": "enumeration",
+      "enum": [
+        "unread",
+        "read"
+      ]
     }
   }
 }

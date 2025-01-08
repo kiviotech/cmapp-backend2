@@ -12,21 +12,16 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "users": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "plugin::users-permissions.user"
+    },
     "projects": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::project.project",
       "mappedBy": "approver"
-    },
-    "user_group": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::user-group.user-group"
-    },
-    "users": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "plugin::users-permissions.user"
     }
   }
 }

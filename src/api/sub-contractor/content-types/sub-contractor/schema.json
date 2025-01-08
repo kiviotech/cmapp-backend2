@@ -24,9 +24,9 @@
       "target": "api::registration.registration",
       "mappedBy": "sub_contractor"
     },
-    "contractor": {
+    "contractors": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::contractor.contractor",
       "mappedBy": "sub_contractor"
     }

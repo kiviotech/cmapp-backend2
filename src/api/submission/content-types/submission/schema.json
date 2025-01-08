@@ -36,7 +36,7 @@
       "enum": [
         "pending",
         "approved",
-        "rejected"
+        "declined"
       ]
     },
     "task": {
@@ -44,6 +44,13 @@
       "relation": "manyToOne",
       "target": "api::task.task",
       "inversedBy": "submissions"
+    },
+    "notification_status": {
+      "type": "enumeration",
+      "enum": [
+        "unread",
+        "read"
+      ]
     }
   }
 }

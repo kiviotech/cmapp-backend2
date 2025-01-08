@@ -1,18 +1,36 @@
-module.exports = () => ({
-    upload: {
-        config: {
-          sizeLimit: 2500 * 1024 * 1024 // 256mb in bytes
-        }
-      },
-      bootstrap({ strapi }) {
-        // Set the requestTimeout to 1,800,000 milliseconds (30 minutes):
-        strapi.server.httpServer.requestTimeout = 30 * 60 * 1000;
-      },
-      'users-permissions': {
-        config: {
-          jwt: {
-            expiresIn: '7d',
-          },
+module.exports = ({ env }) => ({
+  email: {
+    config: {
+      provider: "@strapi/provider-email-nodemailer",
+      providerOptions: {
+        host: env("SMTP_HOST"),
+        port: env("SMTP_PORT"),
+        auth: {
+          user: env("SMTP_USERNAME"),
+          pass: env("SMTP_PASSWORD"),
         },
       },
+      settings: {
+        defaultFrom: env("SMTP_FROM"),
+        defaultReplyTo: env("SMTP_REPLY_TO"),
+      },
+    },
+  },
+  upload: {
+    config: {
+      sizeLimit: 256 * 1024 * 1024, // 256 MB in bytes
+    },
+  },
+  "users-permissions": {
+    config: {
+      jwt: {
+        expiresIn: "7d", // Set token expiration to 1 minute for testing
+      },
+    },
+  },
 });
+
+// Set the server request timeout
+module.exports.bootstrap = ({ strapi }) => {
+  strapi.server.httpServer.requestTimeout = 30 * 60 * 1000; // 30 minutes
+};
