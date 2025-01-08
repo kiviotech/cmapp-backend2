@@ -932,6 +932,11 @@ export interface ApiConsultantConsultant extends Schema.CollectionType {
   attributes: {
     name: Attribute.String;
     contact_info: Attribute.String;
+    standard_tasks: Attribute.Relation<
+      'api::consultant.consultant',
+      'oneToMany',
+      'api::standard-task.standard-task'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1117,6 +1122,17 @@ export interface ApiProjectTeamProjectTeam extends Schema.CollectionType {
       'oneToMany',
       'api::project.project'
     >;
+    task: Attribute.Relation<
+      'api::project-team.project-team',
+      'manyToOne',
+      'api::task.task'
+    >;
+    standard_tasks: Attribute.Relation<
+      'api::project-team.project-team',
+      'oneToMany',
+      'api::standard-task.standard-task'
+    >;
+    job_role: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1242,6 +1258,24 @@ export interface ApiStandardTaskStandardTask extends Schema.CollectionType {
       'manyToOne',
       'api::subcategory.subcategory'
     >;
+    RequiredDocuments: Attribute.String;
+    QATeamProcess: Attribute.String;
+    QCTeamProcess: Attribute.String;
+    consultant: Attribute.Relation<
+      'api::standard-task.standard-task',
+      'manyToOne',
+      'api::consultant.consultant'
+    >;
+    project_team: Attribute.Relation<
+      'api::standard-task.standard-task',
+      'manyToOne',
+      'api::project-team.project-team'
+    >;
+    sub_contractor: Attribute.Relation<
+      'api::standard-task.standard-task',
+      'manyToOne',
+      'api::sub-contractor.sub-contractor'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1283,6 +1317,11 @@ export interface ApiSubContractorSubContractor extends Schema.CollectionType {
       'api::sub-contractor.sub-contractor',
       'oneToMany',
       'api::contractor.contractor'
+    >;
+    standard_tasks: Attribute.Relation<
+      'api::sub-contractor.sub-contractor',
+      'oneToMany',
+      'api::standard-task.standard-task'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1326,6 +1365,8 @@ export interface ApiSubcategorySubcategory extends Schema.CollectionType {
       'oneToMany',
       'api::standard-task.standard-task'
     >;
+    Inspection_form: Attribute.String;
+    Drawings: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1424,6 +1465,11 @@ export interface ApiTaskTask extends Schema.CollectionType {
       ['pending', 'ongoing', 'ahead', 'delayed', 'completed']
     >;
     due_date: Attribute.Date;
+    approvers: Attribute.Relation<
+      'api::task.task',
+      'oneToMany',
+      'api::project-team.project-team'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
