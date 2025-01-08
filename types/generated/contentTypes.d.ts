@@ -971,11 +971,6 @@ export interface ApiContractorContractor extends Schema.CollectionType {
       'api::project.project'
     >;
     documents: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
-    sub_contractor: Attribute.Relation<
-      'api::contractor.contractor',
-      'oneToOne',
-      'api::sub-contractor.sub-contractor'
-    >;
     tasks: Attribute.Relation<
       'api::contractor.contractor',
       'oneToMany',
@@ -985,6 +980,11 @@ export interface ApiContractorContractor extends Schema.CollectionType {
       'api::contractor.contractor',
       'oneToOne',
       'plugin::users-permissions.user'
+    >;
+    sub_contractor: Attribute.Relation<
+      'api::contractor.contractor',
+      'manyToOne',
+      'api::sub-contractor.sub-contractor'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1279,9 +1279,9 @@ export interface ApiSubContractorSubContractor extends Schema.CollectionType {
       'oneToOne',
       'api::registration.registration'
     >;
-    contractor: Attribute.Relation<
+    contractors: Attribute.Relation<
       'api::sub-contractor.sub-contractor',
-      'oneToOne',
+      'oneToMany',
       'api::contractor.contractor'
     >;
     createdAt: Attribute.DateTime;
