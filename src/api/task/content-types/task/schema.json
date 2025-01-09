@@ -58,6 +58,12 @@
     },
     "due_date": {
       "type": "date"
+    },
+    "approvers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::project-team.project-team",
+      "mappedBy": "task"
     }
   }
 }

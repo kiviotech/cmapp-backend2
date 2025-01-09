@@ -16,6 +16,12 @@
     },
     "contact_info": {
       "type": "string"
+    },
+    "standard_tasks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::standard-task.standard-task",
+      "mappedBy": "consultant"
     }
   }
 }

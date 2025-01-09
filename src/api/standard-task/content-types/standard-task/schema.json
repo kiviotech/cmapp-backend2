@@ -23,6 +23,33 @@
       "relation": "manyToOne",
       "target": "api::subcategory.subcategory",
       "inversedBy": "standard_tasks"
+    },
+    "RequiredDocuments": {
+      "type": "string"
+    },
+    "QATeamProcess": {
+      "type": "string"
+    },
+    "QCTeamProcess": {
+      "type": "string"
+    },
+    "consultant": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::consultant.consultant",
+      "inversedBy": "standard_tasks"
+    },
+    "project_team": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::project-team.project-team",
+      "inversedBy": "standard_tasks"
+    },
+    "sub_contractor": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::sub-contractor.sub-contractor",
+      "inversedBy": "standard_tasks"
     }
   }
 }

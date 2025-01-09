@@ -22,6 +22,21 @@
       "relation": "oneToMany",
       "target": "api::project.project",
       "mappedBy": "approver"
+    },
+    "task": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::task.task",
+      "inversedBy": "approvers"
+    },
+    "standard_tasks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::standard-task.standard-task",
+      "mappedBy": "project_team"
+    },
+    "job_role": {
+      "type": "string"
     }
   }
 }

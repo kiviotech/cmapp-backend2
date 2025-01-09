@@ -29,6 +29,19 @@
       "relation": "oneToMany",
       "target": "api::standard-task.standard-task",
       "mappedBy": "subcategory"
+    },
+    "Inspection_form": {
+      "type": "string"
+    },
+    "Drawings": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
     }
   }
 }
