@@ -20,8 +20,9 @@
     },
     "standard_task": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::standard-task.standard-task"
+      "relation": "manyToOne",
+      "target": "api::standard-task.standard-task",
+      "inversedBy": "tasks"
     },
     "submissions": {
       "type": "relation",
@@ -59,10 +60,10 @@
     "due_date": {
       "type": "date"
     },
-    "approvers": {
+    "approver": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::project-team.project-team",
+      "target": "plugin::users-permissions.user",
       "mappedBy": "task"
     }
   }

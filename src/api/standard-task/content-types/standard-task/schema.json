@@ -50,6 +50,15 @@
       "relation": "manyToOne",
       "target": "api::sub-contractor.sub-contractor",
       "inversedBy": "standard_tasks"
+    },
+    "tasks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::task.task",
+      "mappedBy": "standard_task"
+    },
+    "Links": {
+      "type": "string"
     }
   }
 }

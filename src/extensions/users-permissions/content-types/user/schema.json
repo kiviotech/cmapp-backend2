@@ -70,6 +70,12 @@
       "relation": "manyToOne",
       "target": "api::user-group.user-group",
       "inversedBy": "users"
+    },
+    "task": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::task.task",
+      "inversedBy": "approver"
     }
   }
 }

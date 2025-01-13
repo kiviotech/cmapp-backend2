@@ -728,6 +728,11 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'manyToOne',
       'api::user-group.user-group'
     >;
+    task: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'manyToOne',
+      'api::task.task'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1073,15 +1078,15 @@ export interface ApiProjectProject extends Schema.CollectionType {
       'manyToMany',
       'api::contractor.contractor'
     >;
-    approver: Attribute.Relation<
-      'api::project.project',
-      'manyToOne',
-      'api::project-team.project-team'
-    >;
     project_status: Attribute.Enumeration<
       ['pending', 'ongoing', 'ahead', 'delayed', 'completed']
     >;
     documents: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    approvers: Attribute.Relation<
+      'api::project.project',
+      'oneToMany',
+      'api::project-team.project-team'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1117,15 +1122,10 @@ export interface ApiProjectTeamProjectTeam extends Schema.CollectionType {
       'oneToMany',
       'plugin::users-permissions.user'
     >;
-    projects: Attribute.Relation<
-      'api::project-team.project-team',
-      'oneToMany',
-      'api::project.project'
-    >;
-    task: Attribute.Relation<
+    project: Attribute.Relation<
       'api::project-team.project-team',
       'manyToOne',
-      'api::task.task'
+      'api::project.project'
     >;
     standard_tasks: Attribute.Relation<
       'api::project-team.project-team',
@@ -1276,6 +1276,12 @@ export interface ApiStandardTaskStandardTask extends Schema.CollectionType {
       'manyToOne',
       'api::sub-contractor.sub-contractor'
     >;
+    tasks: Attribute.Relation<
+      'api::standard-task.standard-task',
+      'oneToMany',
+      'api::task.task'
+    >;
+    Links: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1367,6 +1373,7 @@ export interface ApiSubcategorySubcategory extends Schema.CollectionType {
     >;
     Inspection_form: Attribute.String;
     Drawings: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    Links: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1403,13 +1410,14 @@ export interface ApiSubmissionSubmission extends Schema.CollectionType {
       true
     >;
     count: Attribute.Integer & Attribute.Required & Attribute.DefaultTo<0>;
-    status: Attribute.Enumeration<['pending', 'approved', 'declined']>;
+    status: Attribute.Enumeration<['pending', 'approved', 'rejected']>;
     task: Attribute.Relation<
       'api::submission.submission',
       'manyToOne',
       'api::task.task'
     >;
     notification_status: Attribute.Enumeration<['unread', 'read']>;
+    rejection_reason: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1447,7 +1455,7 @@ export interface ApiTaskTask extends Schema.CollectionType {
     >;
     standard_task: Attribute.Relation<
       'api::task.task',
-      'oneToOne',
+      'manyToOne',
       'api::standard-task.standard-task'
     >;
     submissions: Attribute.Relation<
@@ -1465,10 +1473,10 @@ export interface ApiTaskTask extends Schema.CollectionType {
       ['pending', 'ongoing', 'ahead', 'delayed', 'completed']
     >;
     due_date: Attribute.Date;
-    approvers: Attribute.Relation<
+    approver: Attribute.Relation<
       'api::task.task',
       'oneToMany',
-      'api::project-team.project-team'
+      'plugin::users-permissions.user'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

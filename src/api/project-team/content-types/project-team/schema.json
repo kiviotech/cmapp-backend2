@@ -17,16 +17,10 @@
       "relation": "oneToMany",
       "target": "plugin::users-permissions.user"
     },
-    "projects": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::project.project",
-      "mappedBy": "approver"
-    },
-    "task": {
+    "project": {
       "type": "relation",
       "relation": "manyToOne",
-      "target": "api::task.task",
+      "target": "api::project.project",
       "inversedBy": "approvers"
     },
     "standard_tasks": {

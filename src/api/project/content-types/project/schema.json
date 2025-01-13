@@ -42,12 +42,6 @@
       "target": "api::contractor.contractor",
       "mappedBy": "projects"
     },
-    "approver": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::project-team.project-team",
-      "inversedBy": "projects"
-    },
     "project_status": {
       "type": "enumeration",
       "enum": [
@@ -67,6 +61,12 @@
       ],
       "type": "media",
       "multiple": true
+    },
+    "approvers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::project-team.project-team",
+      "mappedBy": "project"
     }
   }
 }

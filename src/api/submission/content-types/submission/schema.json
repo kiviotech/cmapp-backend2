@@ -36,7 +36,7 @@
       "enum": [
         "pending",
         "approved",
-        "declined"
+        "rejected"
       ]
     },
     "task": {
@@ -51,6 +51,9 @@
         "unread",
         "read"
       ]
+    },
+    "rejection_reason": {
+      "type": "string"
     }
   }
 }

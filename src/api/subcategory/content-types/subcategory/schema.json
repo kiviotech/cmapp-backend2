@@ -34,14 +34,18 @@
       "type": "string"
     },
     "Drawings": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
+    },
+    "Links": {
+      "type": "string"
     }
   }
 }
