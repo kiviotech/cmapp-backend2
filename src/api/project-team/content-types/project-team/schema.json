@@ -26,12 +26,6 @@
     "job_role": {
       "type": "string"
     },
-    "project": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::project.project",
-      "inversedBy": "approvers"
-    },
     "tasks": {
       "type": "relation",
       "relation": "oneToMany",

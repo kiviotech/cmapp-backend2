@@ -56,6 +56,9 @@
       "relation": "oneToMany",
       "target": "api::task.task",
       "mappedBy": "standard_task"
+    },
+    "Urls": {
+      "type": "string"
     }
   }
 }
