@@ -65,6 +65,12 @@
       "relation": "oneToMany",
       "target": "plugin::users-permissions.user",
       "mappedBy": "task"
+    },
+    "project_team": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "tasks"
     }
   }
 }

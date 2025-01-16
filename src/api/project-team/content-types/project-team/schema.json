@@ -31,6 +31,12 @@
     },
     "job_role": {
       "type": "string"
+    },
+    "tasks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::task.task",
+      "mappedBy": "project_team"
     }
   }
 }
