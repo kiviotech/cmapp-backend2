@@ -43,9 +43,6 @@
         "videos",
         "audios"
       ]
-    },
-    "Links": {
-      "type": "string"
     }
   }
 }

@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-01-11T14:57:18.153Z"
+    "x-generation-date": "2025-01-16T10:30:50.932Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -2131,9 +2131,6 @@
                                                                                                                       }
                                                                                                                     }
                                                                                                                   },
-                                                                                                                  "Links": {
-                                                                                                                    "type": "string"
-                                                                                                                  },
                                                                                                                   "createdAt": {
                                                                                                                     "type": "string",
                                                                                                                     "format": "date-time"
@@ -2317,23 +2314,6 @@
                                                                                                                       }
                                                                                                                     }
                                                                                                                   },
-                                                                                                                  "project": {
-                                                                                                                    "type": "object",
-                                                                                                                    "properties": {
-                                                                                                                      "data": {
-                                                                                                                        "type": "object",
-                                                                                                                        "properties": {
-                                                                                                                          "id": {
-                                                                                                                            "type": "number"
-                                                                                                                          },
-                                                                                                                          "attributes": {
-                                                                                                                            "type": "object",
-                                                                                                                            "properties": {}
-                                                                                                                          }
-                                                                                                                        }
-                                                                                                                      }
-                                                                                                                    }
-                                                                                                                  },
                                                                                                                   "standard_tasks": {
                                                                                                                     "type": "object",
                                                                                                                     "properties": {
@@ -2356,6 +2336,43 @@
                                                                                                                   },
                                                                                                                   "job_role": {
                                                                                                                     "type": "string"
+                                                                                                                  },
+                                                                                                                  "project": {
+                                                                                                                    "type": "object",
+                                                                                                                    "properties": {
+                                                                                                                      "data": {
+                                                                                                                        "type": "object",
+                                                                                                                        "properties": {
+                                                                                                                          "id": {
+                                                                                                                            "type": "number"
+                                                                                                                          },
+                                                                                                                          "attributes": {
+                                                                                                                            "type": "object",
+                                                                                                                            "properties": {}
+                                                                                                                          }
+                                                                                                                        }
+                                                                                                                      }
+                                                                                                                    }
+                                                                                                                  },
+                                                                                                                  "tasks": {
+                                                                                                                    "type": "object",
+                                                                                                                    "properties": {
+                                                                                                                      "data": {
+                                                                                                                        "type": "array",
+                                                                                                                        "items": {
+                                                                                                                          "type": "object",
+                                                                                                                          "properties": {
+                                                                                                                            "id": {
+                                                                                                                              "type": "number"
+                                                                                                                            },
+                                                                                                                            "attributes": {
+                                                                                                                              "type": "object",
+                                                                                                                              "properties": {}
+                                                                                                                            }
+                                                                                                                          }
+                                                                                                                        }
+                                                                                                                      }
+                                                                                                                    }
                                                                                                                   },
                                                                                                                   "createdAt": {
                                                                                                                     "type": "string",
@@ -2445,9 +2462,6 @@
                                                                                                             }
                                                                                                           }
                                                                                                         }
-                                                                                                      },
-                                                                                                      "Links": {
-                                                                                                        "type": "string"
                                                                                                       },
                                                                                                       "createdAt": {
                                                                                                         "type": "string",
@@ -3286,6 +3300,26 @@
                                                               "type": "object",
                                                               "properties": {}
                                                             }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  },
+                                                  "Urls": {
+                                                    "type": "string"
+                                                  },
+                                                  "project_team": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                      "data": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                          "id": {
+                                                            "type": "number"
+                                                          },
+                                                          "attributes": {
+                                                            "type": "object",
+                                                            "properties": {}
                                                           }
                                                         }
                                                       }
@@ -6240,6 +6274,26 @@
                                                                                                           }
                                                                                                         }
                                                                                                       },
+                                                                                                      "Urls": {
+                                                                                                        "type": "string"
+                                                                                                      },
+                                                                                                      "project_team": {
+                                                                                                        "type": "object",
+                                                                                                        "properties": {
+                                                                                                          "data": {
+                                                                                                            "type": "object",
+                                                                                                            "properties": {
+                                                                                                              "id": {
+                                                                                                                "type": "number"
+                                                                                                              },
+                                                                                                              "attributes": {
+                                                                                                                "type": "object",
+                                                                                                                "properties": {}
+                                                                                                              }
+                                                                                                            }
+                                                                                                          }
+                                                                                                        }
+                                                                                                      },
                                                                                                       "createdAt": {
                                                                                                         "type": "string",
                                                                                                         "format": "date-time"
@@ -6341,23 +6395,6 @@
                                                                                 }
                                                                               }
                                                                             },
-                                                                            "project": {
-                                                                              "type": "object",
-                                                                              "properties": {
-                                                                                "data": {
-                                                                                  "type": "object",
-                                                                                  "properties": {
-                                                                                    "id": {
-                                                                                      "type": "number"
-                                                                                    },
-                                                                                    "attributes": {
-                                                                                      "type": "object",
-                                                                                      "properties": {}
-                                                                                    }
-                                                                                  }
-                                                                                }
-                                                                              }
-                                                                            },
                                                                             "standard_tasks": {
                                                                               "type": "object",
                                                                               "properties": {
@@ -6380,6 +6417,43 @@
                                                                             },
                                                                             "job_role": {
                                                                               "type": "string"
+                                                                            },
+                                                                            "project": {
+                                                                              "type": "object",
+                                                                              "properties": {
+                                                                                "data": {
+                                                                                  "type": "object",
+                                                                                  "properties": {
+                                                                                    "id": {
+                                                                                      "type": "number"
+                                                                                    },
+                                                                                    "attributes": {
+                                                                                      "type": "object",
+                                                                                      "properties": {}
+                                                                                    }
+                                                                                  }
+                                                                                }
+                                                                              }
+                                                                            },
+                                                                            "tasks": {
+                                                                              "type": "object",
+                                                                              "properties": {
+                                                                                "data": {
+                                                                                  "type": "array",
+                                                                                  "items": {
+                                                                                    "type": "object",
+                                                                                    "properties": {
+                                                                                      "id": {
+                                                                                        "type": "number"
+                                                                                      },
+                                                                                      "attributes": {
+                                                                                        "type": "object",
+                                                                                        "properties": {}
+                                                                                      }
+                                                                                    }
+                                                                                  }
+                                                                                }
+                                                                              }
                                                                             },
                                                                             "createdAt": {
                                                                               "type": "string",
@@ -6469,9 +6543,6 @@
                                                                       }
                                                                     }
                                                                   }
-                                                                },
-                                                                "Links": {
-                                                                  "type": "string"
                                                                 },
                                                                 "createdAt": {
                                                                   "type": "string",
@@ -6670,9 +6741,6 @@
                                                         }
                                                       }
                                                     }
-                                                  },
-                                                  "Links": {
-                                                    "type": "string"
                                                   },
                                                   "createdAt": {
                                                     "type": "string",
@@ -7875,9 +7943,6 @@
                                           }
                                         }
                                       }
-                                    },
-                                    "Links": {
-                                      "type": "string"
                                     },
                                     "createdAt": {
                                       "type": "string",
@@ -9945,6 +10010,26 @@
                                                                   }
                                                                 }
                                                               },
+                                                              "Urls": {
+                                                                "type": "string"
+                                                              },
+                                                              "project_team": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                  "data": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                      "id": {
+                                                                        "type": "number"
+                                                                      },
+                                                                      "attributes": {
+                                                                        "type": "object",
+                                                                        "properties": {}
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              },
                                                               "createdAt": {
                                                                 "type": "string",
                                                                 "format": "date-time"
@@ -10046,23 +10131,6 @@
                                         }
                                       }
                                     },
-                                    "project": {
-                                      "type": "object",
-                                      "properties": {
-                                        "data": {
-                                          "type": "object",
-                                          "properties": {
-                                            "id": {
-                                              "type": "number"
-                                            },
-                                            "attributes": {
-                                              "type": "object",
-                                              "properties": {}
-                                            }
-                                          }
-                                        }
-                                      }
-                                    },
                                     "standard_tasks": {
                                       "type": "object",
                                       "properties": {
@@ -10085,6 +10153,43 @@
                                     },
                                     "job_role": {
                                       "type": "string"
+                                    },
+                                    "project": {
+                                      "type": "object",
+                                      "properties": {
+                                        "data": {
+                                          "type": "object",
+                                          "properties": {
+                                            "id": {
+                                              "type": "number"
+                                            },
+                                            "attributes": {
+                                              "type": "object",
+                                              "properties": {}
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "tasks": {
+                                      "type": "object",
+                                      "properties": {
+                                        "data": {
+                                          "type": "array",
+                                          "items": {
+                                            "type": "object",
+                                            "properties": {
+                                              "id": {
+                                                "type": "number"
+                                              },
+                                              "attributes": {
+                                                "type": "object",
+                                                "properties": {}
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
                                     },
                                     "createdAt": {
                                       "type": "string",
@@ -10174,9 +10279,6 @@
                               }
                             }
                           }
-                        },
-                        "Links": {
-                          "type": "string"
                         },
                         "createdAt": {
                           "type": "string",
@@ -11374,9 +11476,6 @@
                                                                   }
                                                                 }
                                                               },
-                                                              "Links": {
-                                                                "type": "string"
-                                                              },
                                                               "createdAt": {
                                                                 "type": "string",
                                                                 "format": "date-time"
@@ -12103,23 +12202,6 @@
                                                                   }
                                                                 }
                                                               },
-                                                              "project": {
-                                                                "type": "object",
-                                                                "properties": {
-                                                                  "data": {
-                                                                    "type": "object",
-                                                                    "properties": {
-                                                                      "id": {
-                                                                        "type": "number"
-                                                                      },
-                                                                      "attributes": {
-                                                                        "type": "object",
-                                                                        "properties": {}
-                                                                      }
-                                                                    }
-                                                                  }
-                                                                }
-                                                              },
                                                               "standard_tasks": {
                                                                 "type": "object",
                                                                 "properties": {
@@ -12142,6 +12224,43 @@
                                                               },
                                                               "job_role": {
                                                                 "type": "string"
+                                                              },
+                                                              "project": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                  "data": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                      "id": {
+                                                                        "type": "number"
+                                                                      },
+                                                                      "attributes": {
+                                                                        "type": "object",
+                                                                        "properties": {}
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              },
+                                                              "tasks": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                  "data": {
+                                                                    "type": "array",
+                                                                    "items": {
+                                                                      "type": "object",
+                                                                      "properties": {
+                                                                        "id": {
+                                                                          "type": "number"
+                                                                        },
+                                                                        "attributes": {
+                                                                          "type": "object",
+                                                                          "properties": {}
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
                                                               },
                                                               "createdAt": {
                                                                 "type": "string",
@@ -12870,9 +12989,6 @@
                                                       }
                                                     }
                                                   },
-                                                  "Links": {
-                                                    "type": "string"
-                                                  },
                                                   "createdAt": {
                                                     "type": "string",
                                                     "format": "date-time"
@@ -13363,6 +13479,26 @@
                                                   "type": "object",
                                                   "properties": {}
                                                 }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "Urls": {
+                                        "type": "string"
+                                      },
+                                      "project_team": {
+                                        "type": "object",
+                                        "properties": {
+                                          "data": {
+                                            "type": "object",
+                                            "properties": {
+                                              "id": {
+                                                "type": "number"
+                                              },
+                                              "attributes": {
+                                                "type": "object",
+                                                "properties": {}
                                               }
                                             }
                                           }
@@ -15928,9 +16064,6 @@
                                                                                                                     }
                                                                                                                   }
                                                                                                                 },
-                                                                                                                "Links": {
-                                                                                                                  "type": "string"
-                                                                                                                },
                                                                                                                 "createdAt": {
                                                                                                                   "type": "string",
                                                                                                                   "format": "date-time"
@@ -16114,23 +16247,6 @@
                                                                                                                     }
                                                                                                                   }
                                                                                                                 },
-                                                                                                                "project": {
-                                                                                                                  "type": "object",
-                                                                                                                  "properties": {
-                                                                                                                    "data": {
-                                                                                                                      "type": "object",
-                                                                                                                      "properties": {
-                                                                                                                        "id": {
-                                                                                                                          "type": "number"
-                                                                                                                        },
-                                                                                                                        "attributes": {
-                                                                                                                          "type": "object",
-                                                                                                                          "properties": {}
-                                                                                                                        }
-                                                                                                                      }
-                                                                                                                    }
-                                                                                                                  }
-                                                                                                                },
                                                                                                                 "standard_tasks": {
                                                                                                                   "type": "object",
                                                                                                                   "properties": {
@@ -16153,6 +16269,43 @@
                                                                                                                 },
                                                                                                                 "job_role": {
                                                                                                                   "type": "string"
+                                                                                                                },
+                                                                                                                "project": {
+                                                                                                                  "type": "object",
+                                                                                                                  "properties": {
+                                                                                                                    "data": {
+                                                                                                                      "type": "object",
+                                                                                                                      "properties": {
+                                                                                                                        "id": {
+                                                                                                                          "type": "number"
+                                                                                                                        },
+                                                                                                                        "attributes": {
+                                                                                                                          "type": "object",
+                                                                                                                          "properties": {}
+                                                                                                                        }
+                                                                                                                      }
+                                                                                                                    }
+                                                                                                                  }
+                                                                                                                },
+                                                                                                                "tasks": {
+                                                                                                                  "type": "object",
+                                                                                                                  "properties": {
+                                                                                                                    "data": {
+                                                                                                                      "type": "array",
+                                                                                                                      "items": {
+                                                                                                                        "type": "object",
+                                                                                                                        "properties": {
+                                                                                                                          "id": {
+                                                                                                                            "type": "number"
+                                                                                                                          },
+                                                                                                                          "attributes": {
+                                                                                                                            "type": "object",
+                                                                                                                            "properties": {}
+                                                                                                                          }
+                                                                                                                        }
+                                                                                                                      }
+                                                                                                                    }
+                                                                                                                  }
                                                                                                                 },
                                                                                                                 "createdAt": {
                                                                                                                   "type": "string",
@@ -16242,9 +16395,6 @@
                                                                                                           }
                                                                                                         }
                                                                                                       }
-                                                                                                    },
-                                                                                                    "Links": {
-                                                                                                      "type": "string"
                                                                                                     },
                                                                                                     "createdAt": {
                                                                                                       "type": "string",
@@ -17083,6 +17233,26 @@
                                                             "type": "object",
                                                             "properties": {}
                                                           }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                },
+                                                "Urls": {
+                                                  "type": "string"
+                                                },
+                                                "project_team": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "data": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "id": {
+                                                          "type": "number"
+                                                        },
+                                                        "attributes": {
+                                                          "type": "object",
+                                                          "properties": {}
                                                         }
                                                       }
                                                     }
@@ -19481,9 +19651,6 @@
                                                                                             }
                                                                                           }
                                                                                         },
-                                                                                        "Links": {
-                                                                                          "type": "string"
-                                                                                        },
                                                                                         "createdAt": {
                                                                                           "type": "string",
                                                                                           "format": "date-time"
@@ -19667,23 +19834,6 @@
                                                                                             }
                                                                                           }
                                                                                         },
-                                                                                        "project": {
-                                                                                          "type": "object",
-                                                                                          "properties": {
-                                                                                            "data": {
-                                                                                              "type": "object",
-                                                                                              "properties": {
-                                                                                                "id": {
-                                                                                                  "type": "number"
-                                                                                                },
-                                                                                                "attributes": {
-                                                                                                  "type": "object",
-                                                                                                  "properties": {}
-                                                                                                }
-                                                                                              }
-                                                                                            }
-                                                                                          }
-                                                                                        },
                                                                                         "standard_tasks": {
                                                                                           "type": "object",
                                                                                           "properties": {
@@ -19706,6 +19856,43 @@
                                                                                         },
                                                                                         "job_role": {
                                                                                           "type": "string"
+                                                                                        },
+                                                                                        "project": {
+                                                                                          "type": "object",
+                                                                                          "properties": {
+                                                                                            "data": {
+                                                                                              "type": "object",
+                                                                                              "properties": {
+                                                                                                "id": {
+                                                                                                  "type": "number"
+                                                                                                },
+                                                                                                "attributes": {
+                                                                                                  "type": "object",
+                                                                                                  "properties": {}
+                                                                                                }
+                                                                                              }
+                                                                                            }
+                                                                                          }
+                                                                                        },
+                                                                                        "tasks": {
+                                                                                          "type": "object",
+                                                                                          "properties": {
+                                                                                            "data": {
+                                                                                              "type": "array",
+                                                                                              "items": {
+                                                                                                "type": "object",
+                                                                                                "properties": {
+                                                                                                  "id": {
+                                                                                                    "type": "number"
+                                                                                                  },
+                                                                                                  "attributes": {
+                                                                                                    "type": "object",
+                                                                                                    "properties": {}
+                                                                                                  }
+                                                                                                }
+                                                                                              }
+                                                                                            }
+                                                                                          }
                                                                                         },
                                                                                         "createdAt": {
                                                                                           "type": "string",
@@ -19795,9 +19982,6 @@
                                                                                   }
                                                                                 }
                                                                               }
-                                                                            },
-                                                                            "Links": {
-                                                                              "type": "string"
                                                                             },
                                                                             "createdAt": {
                                                                               "type": "string",
@@ -20641,6 +20825,26 @@
                             }
                           }
                         },
+                        "Urls": {
+                          "type": "string"
+                        },
+                        "project_team": {
+                          "type": "object",
+                          "properties": {
+                            "data": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "number"
+                                },
+                                "attributes": {
+                                  "type": "object",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          }
+                        },
                         "createdAt": {
                           "type": "string",
                           "format": "date-time"
@@ -20985,17 +21189,6 @@
                   "example": "string or id"
                 }
               },
-              "project": {
-                "oneOf": [
-                  {
-                    "type": "integer"
-                  },
-                  {
-                    "type": "string"
-                  }
-                ],
-                "example": "string or id"
-              },
               "standard_tasks": {
                 "type": "array",
                 "items": {
@@ -21012,6 +21205,31 @@
               },
               "job_role": {
                 "type": "string"
+              },
+              "project": {
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ],
+                "example": "string or id"
+              },
+              "tasks": {
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "integer"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ],
+                  "example": "string or id"
+                }
               }
             }
           }
@@ -23026,9 +23244,6 @@
                                                                                                         }
                                                                                                       }
                                                                                                     },
-                                                                                                    "Links": {
-                                                                                                      "type": "string"
-                                                                                                    },
                                                                                                     "createdAt": {
                                                                                                       "type": "string",
                                                                                                       "format": "date-time"
@@ -23212,23 +23427,6 @@
                                                                                                         }
                                                                                                       }
                                                                                                     },
-                                                                                                    "project": {
-                                                                                                      "type": "object",
-                                                                                                      "properties": {
-                                                                                                        "data": {
-                                                                                                          "type": "object",
-                                                                                                          "properties": {
-                                                                                                            "id": {
-                                                                                                              "type": "number"
-                                                                                                            },
-                                                                                                            "attributes": {
-                                                                                                              "type": "object",
-                                                                                                              "properties": {}
-                                                                                                            }
-                                                                                                          }
-                                                                                                        }
-                                                                                                      }
-                                                                                                    },
                                                                                                     "standard_tasks": {
                                                                                                       "type": "object",
                                                                                                       "properties": {
@@ -23251,6 +23449,43 @@
                                                                                                     },
                                                                                                     "job_role": {
                                                                                                       "type": "string"
+                                                                                                    },
+                                                                                                    "project": {
+                                                                                                      "type": "object",
+                                                                                                      "properties": {
+                                                                                                        "data": {
+                                                                                                          "type": "object",
+                                                                                                          "properties": {
+                                                                                                            "id": {
+                                                                                                              "type": "number"
+                                                                                                            },
+                                                                                                            "attributes": {
+                                                                                                              "type": "object",
+                                                                                                              "properties": {}
+                                                                                                            }
+                                                                                                          }
+                                                                                                        }
+                                                                                                      }
+                                                                                                    },
+                                                                                                    "tasks": {
+                                                                                                      "type": "object",
+                                                                                                      "properties": {
+                                                                                                        "data": {
+                                                                                                          "type": "array",
+                                                                                                          "items": {
+                                                                                                            "type": "object",
+                                                                                                            "properties": {
+                                                                                                              "id": {
+                                                                                                                "type": "number"
+                                                                                                              },
+                                                                                                              "attributes": {
+                                                                                                                "type": "object",
+                                                                                                                "properties": {}
+                                                                                                              }
+                                                                                                            }
+                                                                                                          }
+                                                                                                        }
+                                                                                                      }
                                                                                                     },
                                                                                                     "createdAt": {
                                                                                                       "type": "string",
@@ -23340,9 +23575,6 @@
                                                                                               }
                                                                                             }
                                                                                           }
-                                                                                        },
-                                                                                        "Links": {
-                                                                                          "type": "string"
                                                                                         },
                                                                                         "createdAt": {
                                                                                           "type": "string",
@@ -24186,6 +24418,26 @@
                                         }
                                       }
                                     },
+                                    "Urls": {
+                                      "type": "string"
+                                    },
+                                    "project_team": {
+                                      "type": "object",
+                                      "properties": {
+                                        "data": {
+                                          "type": "object",
+                                          "properties": {
+                                            "id": {
+                                              "type": "number"
+                                            },
+                                            "attributes": {
+                                              "type": "object",
+                                              "properties": {}
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
                                     "createdAt": {
                                       "type": "string",
                                       "format": "date-time"
@@ -24287,23 +24539,6 @@
               }
             }
           },
-          "project": {
-            "type": "object",
-            "properties": {
-              "data": {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "type": "number"
-                  },
-                  "attributes": {
-                    "type": "object",
-                    "properties": {}
-                  }
-                }
-              }
-            }
-          },
           "standard_tasks": {
             "type": "object",
             "properties": {
@@ -24326,6 +24561,43 @@
           },
           "job_role": {
             "type": "string"
+          },
+          "project": {
+            "type": "object",
+            "properties": {
+              "data": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "attributes": {
+                    "type": "object",
+                    "properties": {}
+                  }
+                }
+              }
+            }
+          },
+          "tasks": {
+            "type": "object",
+            "properties": {
+              "data": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number"
+                    },
+                    "attributes": {
+                      "type": "object",
+                      "properties": {}
+                    }
+                  }
+                }
+              }
+            }
           },
           "createdAt": {
             "type": "string",
@@ -26643,9 +26915,6 @@
                                                                                                       }
                                                                                                     }
                                                                                                   },
-                                                                                                  "Links": {
-                                                                                                    "type": "string"
-                                                                                                  },
                                                                                                   "createdAt": {
                                                                                                     "type": "string",
                                                                                                     "format": "date-time"
@@ -26829,23 +27098,6 @@
                                                                                                       }
                                                                                                     }
                                                                                                   },
-                                                                                                  "project": {
-                                                                                                    "type": "object",
-                                                                                                    "properties": {
-                                                                                                      "data": {
-                                                                                                        "type": "object",
-                                                                                                        "properties": {
-                                                                                                          "id": {
-                                                                                                            "type": "number"
-                                                                                                          },
-                                                                                                          "attributes": {
-                                                                                                            "type": "object",
-                                                                                                            "properties": {}
-                                                                                                          }
-                                                                                                        }
-                                                                                                      }
-                                                                                                    }
-                                                                                                  },
                                                                                                   "standard_tasks": {
                                                                                                     "type": "object",
                                                                                                     "properties": {
@@ -26868,6 +27120,43 @@
                                                                                                   },
                                                                                                   "job_role": {
                                                                                                     "type": "string"
+                                                                                                  },
+                                                                                                  "project": {
+                                                                                                    "type": "object",
+                                                                                                    "properties": {
+                                                                                                      "data": {
+                                                                                                        "type": "object",
+                                                                                                        "properties": {
+                                                                                                          "id": {
+                                                                                                            "type": "number"
+                                                                                                          },
+                                                                                                          "attributes": {
+                                                                                                            "type": "object",
+                                                                                                            "properties": {}
+                                                                                                          }
+                                                                                                        }
+                                                                                                      }
+                                                                                                    }
+                                                                                                  },
+                                                                                                  "tasks": {
+                                                                                                    "type": "object",
+                                                                                                    "properties": {
+                                                                                                      "data": {
+                                                                                                        "type": "array",
+                                                                                                        "items": {
+                                                                                                          "type": "object",
+                                                                                                          "properties": {
+                                                                                                            "id": {
+                                                                                                              "type": "number"
+                                                                                                            },
+                                                                                                            "attributes": {
+                                                                                                              "type": "object",
+                                                                                                              "properties": {}
+                                                                                                            }
+                                                                                                          }
+                                                                                                        }
+                                                                                                      }
+                                                                                                    }
                                                                                                   },
                                                                                                   "createdAt": {
                                                                                                     "type": "string",
@@ -26957,9 +27246,6 @@
                                                                                             }
                                                                                           }
                                                                                         }
-                                                                                      },
-                                                                                      "Links": {
-                                                                                        "type": "string"
                                                                                       },
                                                                                       "createdAt": {
                                                                                         "type": "string",
@@ -27798,6 +28084,26 @@
                                               "type": "object",
                                               "properties": {}
                                             }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "Urls": {
+                                    "type": "string"
+                                  },
+                                  "project_team": {
+                                    "type": "object",
+                                    "properties": {
+                                      "data": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "type": "number"
+                                          },
+                                          "attributes": {
+                                            "type": "object",
+                                            "properties": {}
                                           }
                                         }
                                       }
@@ -30777,6 +31083,26 @@
                                                                                               }
                                                                                             }
                                                                                           },
+                                                                                          "Urls": {
+                                                                                            "type": "string"
+                                                                                          },
+                                                                                          "project_team": {
+                                                                                            "type": "object",
+                                                                                            "properties": {
+                                                                                              "data": {
+                                                                                                "type": "object",
+                                                                                                "properties": {
+                                                                                                  "id": {
+                                                                                                    "type": "number"
+                                                                                                  },
+                                                                                                  "attributes": {
+                                                                                                    "type": "object",
+                                                                                                    "properties": {}
+                                                                                                  }
+                                                                                                }
+                                                                                              }
+                                                                                            }
+                                                                                          },
                                                                                           "createdAt": {
                                                                                             "type": "string",
                                                                                             "format": "date-time"
@@ -30878,23 +31204,6 @@
                                                                     }
                                                                   }
                                                                 },
-                                                                "project": {
-                                                                  "type": "object",
-                                                                  "properties": {
-                                                                    "data": {
-                                                                      "type": "object",
-                                                                      "properties": {
-                                                                        "id": {
-                                                                          "type": "number"
-                                                                        },
-                                                                        "attributes": {
-                                                                          "type": "object",
-                                                                          "properties": {}
-                                                                        }
-                                                                      }
-                                                                    }
-                                                                  }
-                                                                },
                                                                 "standard_tasks": {
                                                                   "type": "object",
                                                                   "properties": {
@@ -30917,6 +31226,43 @@
                                                                 },
                                                                 "job_role": {
                                                                   "type": "string"
+                                                                },
+                                                                "project": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                    "data": {
+                                                                      "type": "object",
+                                                                      "properties": {
+                                                                        "id": {
+                                                                          "type": "number"
+                                                                        },
+                                                                        "attributes": {
+                                                                          "type": "object",
+                                                                          "properties": {}
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                },
+                                                                "tasks": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                    "data": {
+                                                                      "type": "array",
+                                                                      "items": {
+                                                                        "type": "object",
+                                                                        "properties": {
+                                                                          "id": {
+                                                                            "type": "number"
+                                                                          },
+                                                                          "attributes": {
+                                                                            "type": "object",
+                                                                            "properties": {}
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
                                                                 },
                                                                 "createdAt": {
                                                                   "type": "string",
@@ -31006,9 +31352,6 @@
                                                           }
                                                         }
                                                       }
-                                                    },
-                                                    "Links": {
-                                                      "type": "string"
                                                     },
                                                     "createdAt": {
                                                       "type": "string",
@@ -31207,9 +31550,6 @@
                                             }
                                           }
                                         }
-                                      },
-                                      "Links": {
-                                        "type": "string"
                                       },
                                       "createdAt": {
                                         "type": "string",
@@ -31468,9 +31808,6 @@
                   ],
                   "example": "string or id"
                 }
-              },
-              "Links": {
-                "type": "string"
               }
             }
           }
@@ -34263,6 +34600,26 @@
                                                                               }
                                                                             }
                                                                           },
+                                                                          "Urls": {
+                                                                            "type": "string"
+                                                                          },
+                                                                          "project_team": {
+                                                                            "type": "object",
+                                                                            "properties": {
+                                                                              "data": {
+                                                                                "type": "object",
+                                                                                "properties": {
+                                                                                  "id": {
+                                                                                    "type": "number"
+                                                                                  },
+                                                                                  "attributes": {
+                                                                                    "type": "object",
+                                                                                    "properties": {}
+                                                                                  }
+                                                                                }
+                                                                              }
+                                                                            }
+                                                                          },
                                                                           "createdAt": {
                                                                             "type": "string",
                                                                             "format": "date-time"
@@ -34364,23 +34721,6 @@
                                                     }
                                                   }
                                                 },
-                                                "project": {
-                                                  "type": "object",
-                                                  "properties": {
-                                                    "data": {
-                                                      "type": "object",
-                                                      "properties": {
-                                                        "id": {
-                                                          "type": "number"
-                                                        },
-                                                        "attributes": {
-                                                          "type": "object",
-                                                          "properties": {}
-                                                        }
-                                                      }
-                                                    }
-                                                  }
-                                                },
                                                 "standard_tasks": {
                                                   "type": "object",
                                                   "properties": {
@@ -34403,6 +34743,43 @@
                                                 },
                                                 "job_role": {
                                                   "type": "string"
+                                                },
+                                                "project": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "data": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "id": {
+                                                          "type": "number"
+                                                        },
+                                                        "attributes": {
+                                                          "type": "object",
+                                                          "properties": {}
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                },
+                                                "tasks": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "data": {
+                                                      "type": "array",
+                                                      "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                          "id": {
+                                                            "type": "number"
+                                                          },
+                                                          "attributes": {
+                                                            "type": "object",
+                                                            "properties": {}
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
                                                 },
                                                 "createdAt": {
                                                   "type": "string",
@@ -34492,9 +34869,6 @@
                                           }
                                         }
                                       }
-                                    },
-                                    "Links": {
-                                      "type": "string"
                                     },
                                     "createdAt": {
                                       "type": "string",
@@ -34694,9 +35068,6 @@
                           }
                         }
                       },
-                      "Links": {
-                        "type": "string"
-                      },
                       "createdAt": {
                         "type": "string",
                         "format": "date-time"
@@ -34828,9 +35199,6 @@
                 }
               }
             }
-          },
-          "Links": {
-            "type": "string"
           },
           "createdAt": {
             "type": "string",
@@ -36886,9 +37254,6 @@
                                                                                                                   }
                                                                                                                 }
                                                                                                               },
-                                                                                                              "Links": {
-                                                                                                                "type": "string"
-                                                                                                              },
                                                                                                               "createdAt": {
                                                                                                                 "type": "string",
                                                                                                                 "format": "date-time"
@@ -37072,23 +37437,6 @@
                                                                                                                   }
                                                                                                                 }
                                                                                                               },
-                                                                                                              "project": {
-                                                                                                                "type": "object",
-                                                                                                                "properties": {
-                                                                                                                  "data": {
-                                                                                                                    "type": "object",
-                                                                                                                    "properties": {
-                                                                                                                      "id": {
-                                                                                                                        "type": "number"
-                                                                                                                      },
-                                                                                                                      "attributes": {
-                                                                                                                        "type": "object",
-                                                                                                                        "properties": {}
-                                                                                                                      }
-                                                                                                                    }
-                                                                                                                  }
-                                                                                                                }
-                                                                                                              },
                                                                                                               "standard_tasks": {
                                                                                                                 "type": "object",
                                                                                                                 "properties": {
@@ -37111,6 +37459,43 @@
                                                                                                               },
                                                                                                               "job_role": {
                                                                                                                 "type": "string"
+                                                                                                              },
+                                                                                                              "project": {
+                                                                                                                "type": "object",
+                                                                                                                "properties": {
+                                                                                                                  "data": {
+                                                                                                                    "type": "object",
+                                                                                                                    "properties": {
+                                                                                                                      "id": {
+                                                                                                                        "type": "number"
+                                                                                                                      },
+                                                                                                                      "attributes": {
+                                                                                                                        "type": "object",
+                                                                                                                        "properties": {}
+                                                                                                                      }
+                                                                                                                    }
+                                                                                                                  }
+                                                                                                                }
+                                                                                                              },
+                                                                                                              "tasks": {
+                                                                                                                "type": "object",
+                                                                                                                "properties": {
+                                                                                                                  "data": {
+                                                                                                                    "type": "array",
+                                                                                                                    "items": {
+                                                                                                                      "type": "object",
+                                                                                                                      "properties": {
+                                                                                                                        "id": {
+                                                                                                                          "type": "number"
+                                                                                                                        },
+                                                                                                                        "attributes": {
+                                                                                                                          "type": "object",
+                                                                                                                          "properties": {}
+                                                                                                                        }
+                                                                                                                      }
+                                                                                                                    }
+                                                                                                                  }
+                                                                                                                }
                                                                                                               },
                                                                                                               "createdAt": {
                                                                                                                 "type": "string",
@@ -37200,9 +37585,6 @@
                                                                                                         }
                                                                                                       }
                                                                                                     }
-                                                                                                  },
-                                                                                                  "Links": {
-                                                                                                    "type": "string"
                                                                                                   },
                                                                                                   "createdAt": {
                                                                                                     "type": "string",
@@ -38046,6 +38428,26 @@
                                                   }
                                                 }
                                               },
+                                              "Urls": {
+                                                "type": "string"
+                                              },
+                                              "project_team": {
+                                                "type": "object",
+                                                "properties": {
+                                                  "data": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                      "id": {
+                                                        "type": "number"
+                                                      },
+                                                      "attributes": {
+                                                        "type": "object",
+                                                        "properties": {}
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              },
                                               "createdAt": {
                                                 "type": "string",
                                                 "format": "date-time"
@@ -38399,9 +38801,6 @@
                   ],
                   "example": "string or id"
                 }
-              },
-              "Links": {
-                "type": "string"
               }
             }
           }
@@ -41141,6 +41540,26 @@
                                                                                             }
                                                                                           }
                                                                                         },
+                                                                                        "Urls": {
+                                                                                          "type": "string"
+                                                                                        },
+                                                                                        "project_team": {
+                                                                                          "type": "object",
+                                                                                          "properties": {
+                                                                                            "data": {
+                                                                                              "type": "object",
+                                                                                              "properties": {
+                                                                                                "id": {
+                                                                                                  "type": "number"
+                                                                                                },
+                                                                                                "attributes": {
+                                                                                                  "type": "object",
+                                                                                                  "properties": {}
+                                                                                                }
+                                                                                              }
+                                                                                            }
+                                                                                          }
+                                                                                        },
                                                                                         "createdAt": {
                                                                                           "type": "string",
                                                                                           "format": "date-time"
@@ -41242,23 +41661,6 @@
                                                                   }
                                                                 }
                                                               },
-                                                              "project": {
-                                                                "type": "object",
-                                                                "properties": {
-                                                                  "data": {
-                                                                    "type": "object",
-                                                                    "properties": {
-                                                                      "id": {
-                                                                        "type": "number"
-                                                                      },
-                                                                      "attributes": {
-                                                                        "type": "object",
-                                                                        "properties": {}
-                                                                      }
-                                                                    }
-                                                                  }
-                                                                }
-                                                              },
                                                               "standard_tasks": {
                                                                 "type": "object",
                                                                 "properties": {
@@ -41281,6 +41683,43 @@
                                                               },
                                                               "job_role": {
                                                                 "type": "string"
+                                                              },
+                                                              "project": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                  "data": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                      "id": {
+                                                                        "type": "number"
+                                                                      },
+                                                                      "attributes": {
+                                                                        "type": "object",
+                                                                        "properties": {}
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              },
+                                                              "tasks": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                  "data": {
+                                                                    "type": "array",
+                                                                    "items": {
+                                                                      "type": "object",
+                                                                      "properties": {
+                                                                        "id": {
+                                                                          "type": "number"
+                                                                        },
+                                                                        "attributes": {
+                                                                          "type": "object",
+                                                                          "properties": {}
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
                                                               },
                                                               "createdAt": {
                                                                 "type": "string",
@@ -41370,9 +41809,6 @@
                                                         }
                                                       }
                                                     }
-                                                  },
-                                                  "Links": {
-                                                    "type": "string"
                                                   },
                                                   "createdAt": {
                                                     "type": "string",
@@ -41571,9 +42007,6 @@
                                           }
                                         }
                                       }
-                                    },
-                                    "Links": {
-                                      "type": "string"
                                     },
                                     "createdAt": {
                                       "type": "string",
@@ -41844,9 +42277,6 @@
                 }
               }
             }
-          },
-          "Links": {
-            "type": "string"
           },
           "createdAt": {
             "type": "string",
@@ -44197,9 +44627,6 @@
                                                                                           }
                                                                                         }
                                                                                       },
-                                                                                      "Links": {
-                                                                                        "type": "string"
-                                                                                      },
                                                                                       "createdAt": {
                                                                                         "type": "string",
                                                                                         "format": "date-time"
@@ -44383,23 +44810,6 @@
                                                                                           }
                                                                                         }
                                                                                       },
-                                                                                      "project": {
-                                                                                        "type": "object",
-                                                                                        "properties": {
-                                                                                          "data": {
-                                                                                            "type": "object",
-                                                                                            "properties": {
-                                                                                              "id": {
-                                                                                                "type": "number"
-                                                                                              },
-                                                                                              "attributes": {
-                                                                                                "type": "object",
-                                                                                                "properties": {}
-                                                                                              }
-                                                                                            }
-                                                                                          }
-                                                                                        }
-                                                                                      },
                                                                                       "standard_tasks": {
                                                                                         "type": "object",
                                                                                         "properties": {
@@ -44422,6 +44832,43 @@
                                                                                       },
                                                                                       "job_role": {
                                                                                         "type": "string"
+                                                                                      },
+                                                                                      "project": {
+                                                                                        "type": "object",
+                                                                                        "properties": {
+                                                                                          "data": {
+                                                                                            "type": "object",
+                                                                                            "properties": {
+                                                                                              "id": {
+                                                                                                "type": "number"
+                                                                                              },
+                                                                                              "attributes": {
+                                                                                                "type": "object",
+                                                                                                "properties": {}
+                                                                                              }
+                                                                                            }
+                                                                                          }
+                                                                                        }
+                                                                                      },
+                                                                                      "tasks": {
+                                                                                        "type": "object",
+                                                                                        "properties": {
+                                                                                          "data": {
+                                                                                            "type": "array",
+                                                                                            "items": {
+                                                                                              "type": "object",
+                                                                                              "properties": {
+                                                                                                "id": {
+                                                                                                  "type": "number"
+                                                                                                },
+                                                                                                "attributes": {
+                                                                                                  "type": "object",
+                                                                                                  "properties": {}
+                                                                                                }
+                                                                                              }
+                                                                                            }
+                                                                                          }
+                                                                                        }
                                                                                       },
                                                                                       "createdAt": {
                                                                                         "type": "string",
@@ -44511,9 +44958,6 @@
                                                                                 }
                                                                               }
                                                                             }
-                                                                          },
-                                                                          "Links": {
-                                                                            "type": "string"
                                                                           },
                                                                           "createdAt": {
                                                                             "type": "string",
@@ -45357,6 +45801,26 @@
                           }
                         }
                       },
+                      "Urls": {
+                        "type": "string"
+                      },
+                      "project_team": {
+                        "type": "object",
+                        "properties": {
+                          "data": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "number"
+                              },
+                              "attributes": {
+                                "type": "object",
+                                "properties": {}
+                              }
+                            }
+                          }
+                        }
+                      },
                       "createdAt": {
                         "type": "string",
                         "format": "date-time"
@@ -45586,6 +46050,20 @@
                   ],
                   "example": "string or id"
                 }
+              },
+              "Urls": {
+                "type": "string"
+              },
+              "project_team": {
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ],
+                "example": "string or id"
               }
             }
           }
@@ -46561,9 +47039,6 @@
                                                                 }
                                                               }
                                                             },
-                                                            "Links": {
-                                                              "type": "string"
-                                                            },
                                                             "createdAt": {
                                                               "type": "string",
                                                               "format": "date-time"
@@ -47290,23 +47765,6 @@
                                                                 }
                                                               }
                                                             },
-                                                            "project": {
-                                                              "type": "object",
-                                                              "properties": {
-                                                                "data": {
-                                                                  "type": "object",
-                                                                  "properties": {
-                                                                    "id": {
-                                                                      "type": "number"
-                                                                    },
-                                                                    "attributes": {
-                                                                      "type": "object",
-                                                                      "properties": {}
-                                                                    }
-                                                                  }
-                                                                }
-                                                              }
-                                                            },
                                                             "standard_tasks": {
                                                               "type": "object",
                                                               "properties": {
@@ -47329,6 +47787,43 @@
                                                             },
                                                             "job_role": {
                                                               "type": "string"
+                                                            },
+                                                            "project": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "data": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                    "id": {
+                                                                      "type": "number"
+                                                                    },
+                                                                    "attributes": {
+                                                                      "type": "object",
+                                                                      "properties": {}
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            },
+                                                            "tasks": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "data": {
+                                                                  "type": "array",
+                                                                  "items": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                      "id": {
+                                                                        "type": "number"
+                                                                      },
+                                                                      "attributes": {
+                                                                        "type": "object",
+                                                                        "properties": {}
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
                                                             },
                                                             "createdAt": {
                                                               "type": "string",
@@ -48057,9 +48552,6 @@
                                                     }
                                                   }
                                                 },
-                                                "Links": {
-                                                  "type": "string"
-                                                },
                                                 "createdAt": {
                                                   "type": "string",
                                                   "format": "date-time"
@@ -48550,6 +49042,26 @@
                                                 "type": "object",
                                                 "properties": {}
                                               }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "Urls": {
+                                      "type": "string"
+                                    },
+                                    "project_team": {
+                                      "type": "object",
+                                      "properties": {
+                                        "data": {
+                                          "type": "object",
+                                          "properties": {
+                                            "id": {
+                                              "type": "number"
+                                            },
+                                            "attributes": {
+                                              "type": "object",
+                                              "properties": {}
                                             }
                                           }
                                         }
@@ -49083,6 +49595,26 @@
                       "type": "object",
                       "properties": {}
                     }
+                  }
+                }
+              }
+            }
+          },
+          "Urls": {
+            "type": "string"
+          },
+          "project_team": {
+            "type": "object",
+            "properties": {
+              "data": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "attributes": {
+                    "type": "object",
+                    "properties": {}
                   }
                 }
               }
@@ -51113,9 +51645,6 @@
                                                                                                                                     }
                                                                                                                                   }
                                                                                                                                 },
-                                                                                                                                "Links": {
-                                                                                                                                  "type": "string"
-                                                                                                                                },
                                                                                                                                 "createdAt": {
                                                                                                                                   "type": "string",
                                                                                                                                   "format": "date-time"
@@ -51299,23 +51828,6 @@
                                                                                                                                     }
                                                                                                                                   }
                                                                                                                                 },
-                                                                                                                                "project": {
-                                                                                                                                  "type": "object",
-                                                                                                                                  "properties": {
-                                                                                                                                    "data": {
-                                                                                                                                      "type": "object",
-                                                                                                                                      "properties": {
-                                                                                                                                        "id": {
-                                                                                                                                          "type": "number"
-                                                                                                                                        },
-                                                                                                                                        "attributes": {
-                                                                                                                                          "type": "object",
-                                                                                                                                          "properties": {}
-                                                                                                                                        }
-                                                                                                                                      }
-                                                                                                                                    }
-                                                                                                                                  }
-                                                                                                                                },
                                                                                                                                 "standard_tasks": {
                                                                                                                                   "type": "object",
                                                                                                                                   "properties": {
@@ -51338,6 +51850,43 @@
                                                                                                                                 },
                                                                                                                                 "job_role": {
                                                                                                                                   "type": "string"
+                                                                                                                                },
+                                                                                                                                "project": {
+                                                                                                                                  "type": "object",
+                                                                                                                                  "properties": {
+                                                                                                                                    "data": {
+                                                                                                                                      "type": "object",
+                                                                                                                                      "properties": {
+                                                                                                                                        "id": {
+                                                                                                                                          "type": "number"
+                                                                                                                                        },
+                                                                                                                                        "attributes": {
+                                                                                                                                          "type": "object",
+                                                                                                                                          "properties": {}
+                                                                                                                                        }
+                                                                                                                                      }
+                                                                                                                                    }
+                                                                                                                                  }
+                                                                                                                                },
+                                                                                                                                "tasks": {
+                                                                                                                                  "type": "object",
+                                                                                                                                  "properties": {
+                                                                                                                                    "data": {
+                                                                                                                                      "type": "array",
+                                                                                                                                      "items": {
+                                                                                                                                        "type": "object",
+                                                                                                                                        "properties": {
+                                                                                                                                          "id": {
+                                                                                                                                            "type": "number"
+                                                                                                                                          },
+                                                                                                                                          "attributes": {
+                                                                                                                                            "type": "object",
+                                                                                                                                            "properties": {}
+                                                                                                                                          }
+                                                                                                                                        }
+                                                                                                                                      }
+                                                                                                                                    }
+                                                                                                                                  }
                                                                                                                                 },
                                                                                                                                 "createdAt": {
                                                                                                                                   "type": "string",
@@ -51427,9 +51976,6 @@
                                                                                                                           }
                                                                                                                         }
                                                                                                                       }
-                                                                                                                    },
-                                                                                                                    "Links": {
-                                                                                                                      "type": "string"
                                                                                                                     },
                                                                                                                     "createdAt": {
                                                                                                                       "type": "string",
@@ -52268,6 +52814,26 @@
                                                                             "type": "object",
                                                                             "properties": {}
                                                                           }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                },
+                                                                "Urls": {
+                                                                  "type": "string"
+                                                                },
+                                                                "project_team": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                    "data": {
+                                                                      "type": "object",
+                                                                      "properties": {
+                                                                        "id": {
+                                                                          "type": "number"
+                                                                        },
+                                                                        "attributes": {
+                                                                          "type": "object",
+                                                                          "properties": {}
                                                                         }
                                                                       }
                                                                     }

@@ -17,12 +17,6 @@
       "relation": "oneToMany",
       "target": "plugin::users-permissions.user"
     },
-    "project": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::project.project",
-      "inversedBy": "approvers"
-    },
     "standard_tasks": {
       "type": "relation",
       "relation": "oneToMany",
@@ -31,6 +25,18 @@
     },
     "job_role": {
       "type": "string"
+    },
+    "project": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::project.project",
+      "inversedBy": "approvers"
+    },
+    "tasks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::task.task",
+      "mappedBy": "project_team"
     }
   }
 }

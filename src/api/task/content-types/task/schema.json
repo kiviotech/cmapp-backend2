@@ -65,6 +65,15 @@
       "relation": "oneToMany",
       "target": "plugin::users-permissions.user",
       "mappedBy": "task"
+    },
+    "Urls": {
+      "type": "string"
+    },
+    "project_team": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::project-team.project-team",
+      "inversedBy": "tasks"
     }
   }
 }

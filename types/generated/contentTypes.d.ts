@@ -1122,17 +1122,22 @@ export interface ApiProjectTeamProjectTeam extends Schema.CollectionType {
       'oneToMany',
       'plugin::users-permissions.user'
     >;
-    project: Attribute.Relation<
-      'api::project-team.project-team',
-      'manyToOne',
-      'api::project.project'
-    >;
     standard_tasks: Attribute.Relation<
       'api::project-team.project-team',
       'oneToMany',
       'api::standard-task.standard-task'
     >;
     job_role: Attribute.String;
+    project: Attribute.Relation<
+      'api::project-team.project-team',
+      'manyToOne',
+      'api::project.project'
+    >;
+    tasks: Attribute.Relation<
+      'api::project-team.project-team',
+      'oneToMany',
+      'api::task.task'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1281,7 +1286,6 @@ export interface ApiStandardTaskStandardTask extends Schema.CollectionType {
       'oneToMany',
       'api::task.task'
     >;
-    Links: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1373,7 +1377,6 @@ export interface ApiSubcategorySubcategory extends Schema.CollectionType {
     >;
     Inspection_form: Attribute.String;
     Drawings: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
-    Links: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1477,6 +1480,12 @@ export interface ApiTaskTask extends Schema.CollectionType {
       'api::task.task',
       'oneToMany',
       'plugin::users-permissions.user'
+    >;
+    Urls: Attribute.String;
+    project_team: Attribute.Relation<
+      'api::task.task',
+      'manyToOne',
+      'api::project-team.project-team'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
