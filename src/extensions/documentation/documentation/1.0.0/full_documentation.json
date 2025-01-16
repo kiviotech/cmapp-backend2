@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-01-16T06:02:22.977Z"
+    "x-generation-date": "2025-01-16T09:43:03.855Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -2131,9 +2131,6 @@
                                                                                                                       }
                                                                                                                     }
                                                                                                                   },
-                                                                                                                  "Links": {
-                                                                                                                    "type": "string"
-                                                                                                                  },
                                                                                                                   "createdAt": {
                                                                                                                     "type": "string",
                                                                                                                     "format": "date-time"
@@ -2466,7 +2463,7 @@
                                                                                                           }
                                                                                                         }
                                                                                                       },
-                                                                                                      "Links": {
+                                                                                                      "Urls": {
                                                                                                         "type": "string"
                                                                                                       },
                                                                                                       "createdAt": {
@@ -6584,7 +6581,7 @@
                                                                     }
                                                                   }
                                                                 },
-                                                                "Links": {
+                                                                "Urls": {
                                                                   "type": "string"
                                                                 },
                                                                 "createdAt": {
@@ -6784,9 +6781,6 @@
                                                         }
                                                       }
                                                     }
-                                                  },
-                                                  "Links": {
-                                                    "type": "string"
                                                   },
                                                   "createdAt": {
                                                     "type": "string",
@@ -7989,9 +7983,6 @@
                                           }
                                         }
                                       }
-                                    },
-                                    "Links": {
-                                      "type": "string"
                                     },
                                     "createdAt": {
                                       "type": "string",
@@ -10346,7 +10337,7 @@
                             }
                           }
                         },
-                        "Links": {
+                        "Urls": {
                           "type": "string"
                         },
                         "createdAt": {
@@ -11544,9 +11535,6 @@
                                                                     }
                                                                   }
                                                                 }
-                                                              },
-                                                              "Links": {
-                                                                "type": "string"
                                                               },
                                                               "createdAt": {
                                                                 "type": "string",
@@ -13081,7 +13069,7 @@
                                                       }
                                                     }
                                                   },
-                                                  "Links": {
+                                                  "Urls": {
                                                     "type": "string"
                                                   },
                                                   "createdAt": {
@@ -16156,9 +16144,6 @@
                                                                                                                     }
                                                                                                                   }
                                                                                                                 },
-                                                                                                                "Links": {
-                                                                                                                  "type": "string"
-                                                                                                                },
                                                                                                                 "createdAt": {
                                                                                                                   "type": "string",
                                                                                                                   "format": "date-time"
@@ -16491,7 +16476,7 @@
                                                                                                         }
                                                                                                       }
                                                                                                     },
-                                                                                                    "Links": {
+                                                                                                    "Urls": {
                                                                                                       "type": "string"
                                                                                                     },
                                                                                                     "createdAt": {
@@ -19786,9 +19771,6 @@
                                                                                             }
                                                                                           }
                                                                                         },
-                                                                                        "Links": {
-                                                                                          "type": "string"
-                                                                                        },
                                                                                         "createdAt": {
                                                                                           "type": "string",
                                                                                           "format": "date-time"
@@ -20121,7 +20103,7 @@
                                                                                 }
                                                                               }
                                                                             },
-                                                                            "Links": {
+                                                                            "Urls": {
                                                                               "type": "string"
                                                                             },
                                                                             "createdAt": {
@@ -23382,9 +23364,6 @@
                                                                                                         }
                                                                                                       }
                                                                                                     },
-                                                                                                    "Links": {
-                                                                                                      "type": "string"
-                                                                                                    },
                                                                                                     "createdAt": {
                                                                                                       "type": "string",
                                                                                                       "format": "date-time"
@@ -23717,7 +23696,7 @@
                                                                                             }
                                                                                           }
                                                                                         },
-                                                                                        "Links": {
+                                                                                        "Urls": {
                                                                                           "type": "string"
                                                                                         },
                                                                                         "createdAt": {
@@ -27076,9 +27055,6 @@
                                                                                                       }
                                                                                                     }
                                                                                                   },
-                                                                                                  "Links": {
-                                                                                                    "type": "string"
-                                                                                                  },
                                                                                                   "createdAt": {
                                                                                                     "type": "string",
                                                                                                     "format": "date-time"
@@ -27411,7 +27387,7 @@
                                                                                           }
                                                                                         }
                                                                                       },
-                                                                                      "Links": {
+                                                                                      "Urls": {
                                                                                         "type": "string"
                                                                                       },
                                                                                       "createdAt": {
@@ -31554,7 +31530,7 @@
                                                         }
                                                       }
                                                     },
-                                                    "Links": {
+                                                    "Urls": {
                                                       "type": "string"
                                                     },
                                                     "createdAt": {
@@ -31754,9 +31730,6 @@
                                             }
                                           }
                                         }
-                                      },
-                                      "Links": {
-                                        "type": "string"
                                       },
                                       "createdAt": {
                                         "type": "string",
@@ -32016,7 +31989,7 @@
                   "example": "string or id"
                 }
               },
-              "Links": {
+              "Urls": {
                 "type": "string"
               }
             }
@@ -35097,7 +35070,7 @@
                                         }
                                       }
                                     },
-                                    "Links": {
+                                    "Urls": {
                                       "type": "string"
                                     },
                                     "createdAt": {
@@ -35298,9 +35271,6 @@
                           }
                         }
                       },
-                      "Links": {
-                        "type": "string"
-                      },
                       "createdAt": {
                         "type": "string",
                         "format": "date-time"
@@ -35433,7 +35403,7 @@
               }
             }
           },
-          "Links": {
+          "Urls": {
             "type": "string"
           },
           "createdAt": {
@@ -37490,9 +37460,6 @@
                                                                                                                   }
                                                                                                                 }
                                                                                                               },
-                                                                                                              "Links": {
-                                                                                                                "type": "string"
-                                                                                                              },
                                                                                                               "createdAt": {
                                                                                                                 "type": "string",
                                                                                                                 "format": "date-time"
@@ -37825,7 +37792,7 @@
                                                                                                       }
                                                                                                     }
                                                                                                   },
-                                                                                                  "Links": {
+                                                                                                  "Urls": {
                                                                                                     "type": "string"
                                                                                                   },
                                                                                                   "createdAt": {
@@ -39060,9 +39027,6 @@
                   ],
                   "example": "string or id"
                 }
-              },
-              "Links": {
-                "type": "string"
               }
             }
           }
@@ -42089,7 +42053,7 @@
                                                       }
                                                     }
                                                   },
-                                                  "Links": {
+                                                  "Urls": {
                                                     "type": "string"
                                                   },
                                                   "createdAt": {
@@ -42289,9 +42253,6 @@
                                           }
                                         }
                                       }
-                                    },
-                                    "Links": {
-                                      "type": "string"
                                     },
                                     "createdAt": {
                                       "type": "string",
@@ -42562,9 +42523,6 @@
                 }
               }
             }
-          },
-          "Links": {
-            "type": "string"
           },
           "createdAt": {
             "type": "string",
@@ -44935,9 +44893,6 @@
                                                                                           }
                                                                                         }
                                                                                       },
-                                                                                      "Links": {
-                                                                                        "type": "string"
-                                                                                      },
                                                                                       "createdAt": {
                                                                                         "type": "string",
                                                                                         "format": "date-time"
@@ -45270,7 +45225,7 @@
                                                                               }
                                                                             }
                                                                           },
-                                                                          "Links": {
+                                                                          "Urls": {
                                                                             "type": "string"
                                                                           },
                                                                           "createdAt": {
@@ -47347,9 +47302,6 @@
                                                                 }
                                                               }
                                                             },
-                                                            "Links": {
-                                                              "type": "string"
-                                                            },
                                                             "createdAt": {
                                                               "type": "string",
                                                               "format": "date-time"
@@ -48883,7 +48835,7 @@
                                                     }
                                                   }
                                                 },
-                                                "Links": {
+                                                "Urls": {
                                                   "type": "string"
                                                 },
                                                 "createdAt": {
@@ -51973,9 +51925,6 @@
                                                                                                                                     }
                                                                                                                                   }
                                                                                                                                 },
-                                                                                                                                "Links": {
-                                                                                                                                  "type": "string"
-                                                                                                                                },
                                                                                                                                 "createdAt": {
                                                                                                                                   "type": "string",
                                                                                                                                   "format": "date-time"
@@ -52308,7 +52257,7 @@
                                                                                                                         }
                                                                                                                       }
                                                                                                                     },
-                                                                                                                    "Links": {
+                                                                                                                    "Urls": {
                                                                                                                       "type": "string"
                                                                                                                     },
                                                                                                                     "createdAt": {

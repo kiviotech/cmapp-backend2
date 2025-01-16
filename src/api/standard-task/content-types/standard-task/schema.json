@@ -57,7 +57,7 @@
       "target": "api::task.task",
       "mappedBy": "standard_task"
     },
-    "Links": {
+    "Urls": {
       "type": "string"
     }
   }

@@ -1291,7 +1291,7 @@ export interface ApiStandardTaskStandardTask extends Schema.CollectionType {
       'oneToMany',
       'api::task.task'
     >;
-    Links: Attribute.String;
+    Urls: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1383,7 +1383,6 @@ export interface ApiSubcategorySubcategory extends Schema.CollectionType {
     >;
     Inspection_form: Attribute.String;
     Drawings: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
-    Links: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
