@@ -65,9 +65,9 @@
     },
     "approvers": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::project-team.project-team",
-      "mappedBy": "project"
+      "inversedBy": "projects"
     }
   }
 }

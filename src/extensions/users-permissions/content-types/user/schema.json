@@ -81,7 +81,7 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::task.task",
-      "mappedBy": "project_team"
+      "mappedBy": "project_team_member"
     }
   }
 }

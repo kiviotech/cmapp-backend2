@@ -28,9 +28,15 @@
     },
     "tasks": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToOne",
       "target": "api::task.task",
-      "mappedBy": "project_team"
+      "inversedBy": "approver"
+    },
+    "projects": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::project.project",
+      "mappedBy": "approvers"
     }
   }
 }

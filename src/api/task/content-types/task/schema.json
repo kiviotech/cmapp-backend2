@@ -60,17 +60,17 @@
     "due_date": {
       "type": "date"
     },
-    "approver": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "plugin::users-permissions.user",
-      "mappedBy": "task"
-    },
-    "project_team": {
+    "project_team_member": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "plugin::users-permissions.user",
       "inversedBy": "tasks"
+    },
+    "approver": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::project-team.project-team",
+      "mappedBy": "tasks"
     }
   }
 }
