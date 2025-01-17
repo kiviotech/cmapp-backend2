@@ -1127,11 +1127,6 @@ export interface ApiProjectTeamProjectTeam extends Schema.CollectionType {
       'oneToMany',
       'plugin::users-permissions.user'
     >;
-    project: Attribute.Relation<
-      'api::project-team.project-team',
-      'manyToOne',
-      'api::project.project'
-    >;
     standard_tasks: Attribute.Relation<
       'api::project-team.project-team',
       'oneToMany',
@@ -1142,6 +1137,11 @@ export interface ApiProjectTeamProjectTeam extends Schema.CollectionType {
       'api::project-team.project-team',
       'oneToMany',
       'api::task.task'
+    >;
+    project: Attribute.Relation<
+      'api::project-team.project-team',
+      'manyToOne',
+      'api::project.project'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
