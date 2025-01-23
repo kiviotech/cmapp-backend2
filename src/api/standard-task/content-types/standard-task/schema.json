@@ -60,6 +60,16 @@
     "Urls": {
       "type": "string"
     },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
     "code": {
       "type": "string",
       "required": true,
