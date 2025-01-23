@@ -986,11 +986,6 @@ export interface ApiContractorContractor extends Schema.CollectionType {
       'api::project.project'
     >;
     documents: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
-    tasks: Attribute.Relation<
-      'api::contractor.contractor',
-      'oneToMany',
-      'api::task.task'
-    >;
     user: Attribute.Relation<
       'api::contractor.contractor',
       'oneToOne',
@@ -1000,6 +995,11 @@ export interface ApiContractorContractor extends Schema.CollectionType {
       'api::contractor.contractor',
       'manyToOne',
       'api::sub-contractor.sub-contractor'
+    >;
+    tasks: Attribute.Relation<
+      'api::contractor.contractor',
+      'manyToMany',
+      'api::task.task'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1025,6 +1025,7 @@ export interface ApiDesignationDesignation extends Schema.CollectionType {
     singularName: 'designation';
     pluralName: 'designations';
     displayName: 'Designations';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1037,6 +1038,7 @@ export interface ApiDesignationDesignation extends Schema.CollectionType {
       'oneToOne',
       'api::user-group.user-group'
     >;
+    designation_value: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1071,11 +1073,6 @@ export interface ApiProjectProject extends Schema.CollectionType {
     description: Attribute.Text;
     end_date: Attribute.Date;
     start_date: Attribute.Date;
-    tasks: Attribute.Relation<
-      'api::project.project',
-      'oneToMany',
-      'api::task.task'
-    >;
     project_type: Attribute.String;
     location: Attribute.Text;
     contractors: Attribute.Relation<
@@ -1089,8 +1086,13 @@ export interface ApiProjectProject extends Schema.CollectionType {
     documents: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
     approvers: Attribute.Relation<
       'api::project.project',
-      'oneToMany',
+      'manyToMany',
       'api::project-team.project-team'
+    >;
+    tasks: Attribute.Relation<
+      'api::project.project',
+      'oneToMany',
+      'api::task.task'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1135,12 +1137,12 @@ export interface ApiProjectTeamProjectTeam extends Schema.CollectionType {
     job_role: Attribute.String;
     tasks: Attribute.Relation<
       'api::project-team.project-team',
-      'oneToMany',
+      'manyToOne',
       'api::task.task'
     >;
-    project: Attribute.Relation<
+    projects: Attribute.Relation<
       'api::project-team.project-team',
-      'manyToOne',
+      'manyToMany',
       'api::project.project'
     >;
     createdAt: Attribute.DateTime;
@@ -1292,6 +1294,7 @@ export interface ApiStandardTaskStandardTask extends Schema.CollectionType {
       'api::task.task'
     >;
     Urls: Attribute.String;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1474,7 +1477,7 @@ export interface ApiTaskTask extends Schema.CollectionType {
     >;
     contractor: Attribute.Relation<
       'api::task.task',
-      'manyToOne',
+      'manyToMany',
       'api::contractor.contractor'
     >;
     documents: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
@@ -1482,15 +1485,15 @@ export interface ApiTaskTask extends Schema.CollectionType {
       ['pending', 'ongoing', 'ahead', 'delayed', 'completed']
     >;
     due_date: Attribute.Date;
-    approver: Attribute.Relation<
-      'api::task.task',
-      'oneToMany',
-      'plugin::users-permissions.user'
-    >;
-    project_team: Attribute.Relation<
+    project_team_member: Attribute.Relation<
       'api::task.task',
       'manyToOne',
       'plugin::users-permissions.user'
+    >;
+    approver: Attribute.Relation<
+      'api::task.task',
+      'oneToMany',
+      'api::project-team.project-team'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

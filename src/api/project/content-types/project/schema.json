@@ -24,12 +24,6 @@
     "start_date": {
       "type": "date"
     },
-    "tasks": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::task.task",
-      "mappedBy": "project"
-    },
     "project_type": {
       "type": "string"
     },
@@ -65,8 +59,14 @@
     },
     "approvers": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::project-team.project-team",
+      "inversedBy": "projects"
+    },
+    "tasks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::task.task",
       "mappedBy": "project"
     }
   }

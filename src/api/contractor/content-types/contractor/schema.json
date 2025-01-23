@@ -38,12 +38,6 @@
         "audios"
       ]
     },
-    "tasks": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::task.task",
-      "mappedBy": "contractor"
-    },
     "user": {
       "type": "relation",
       "relation": "oneToOne",
@@ -54,6 +48,12 @@
       "relation": "manyToOne",
       "target": "api::sub-contractor.sub-contractor",
       "inversedBy": "contractors"
+    },
+    "tasks": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::task.task",
+      "mappedBy": "contractor"
     }
   }
 }
