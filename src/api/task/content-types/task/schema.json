@@ -32,7 +32,7 @@
     },
     "contractor": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::contractor.contractor",
       "inversedBy": "tasks"
     },

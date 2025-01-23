@@ -4,7 +4,8 @@
   "info": {
     "singularName": "designation",
     "pluralName": "designations",
-    "displayName": "Designations"
+    "displayName": "Designations",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -22,6 +23,9 @@
       "relation": "oneToOne",
       "target": "api::user-group.user-group",
       "mappedBy": "designation"
+    },
+    "designation_value": {
+      "type": "string"
     }
   }
 }
