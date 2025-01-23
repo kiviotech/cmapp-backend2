@@ -1055,6 +1055,43 @@ export interface ApiDesignationDesignation extends Schema.CollectionType {
   };
 }
 
+export interface ApiInspectionFormInspectionForm extends Schema.CollectionType {
+  collectionName: 'inspection_forms';
+  info: {
+    singularName: 'inspection-form';
+    pluralName: 'inspection-forms';
+    displayName: 'Inspection_Form';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    query: Attribute.Text;
+    isCompleted: Attribute.Boolean;
+    subcategory: Attribute.Relation<
+      'api::inspection-form.inspection-form',
+      'manyToOne',
+      'api::subcategory.subcategory'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::inspection-form.inspection-form',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::inspection-form.inspection-form',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiProjectProject extends Schema.CollectionType {
   collectionName: 'projects';
   info: {
@@ -1381,8 +1418,12 @@ export interface ApiSubcategorySubcategory extends Schema.CollectionType {
       'oneToMany',
       'api::standard-task.standard-task'
     >;
-    Inspection_form: Attribute.String;
     Drawings: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    inspection_forms: Attribute.Relation<
+      'api::subcategory.subcategory',
+      'oneToMany',
+      'api::inspection-form.inspection-form'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1571,6 +1612,7 @@ declare module '@strapi/types' {
       'api::consultant.consultant': ApiConsultantConsultant;
       'api::contractor.contractor': ApiContractorContractor;
       'api::designation.designation': ApiDesignationDesignation;
+      'api::inspection-form.inspection-form': ApiInspectionFormInspectionForm;
       'api::project.project': ApiProjectProject;
       'api::project-team.project-team': ApiProjectTeamProjectTeam;
       'api::registration.registration': ApiRegistrationRegistration;

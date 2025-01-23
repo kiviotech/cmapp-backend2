@@ -30,9 +30,6 @@
       "target": "api::standard-task.standard-task",
       "mappedBy": "subcategory"
     },
-    "Inspection_form": {
-      "type": "string"
-    },
     "Drawings": {
       "type": "media",
       "multiple": true,
@@ -43,6 +40,12 @@
         "videos",
         "audios"
       ]
+    },
+    "inspection_forms": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::inspection-form.inspection-form",
+      "mappedBy": "subcategory"
     }
   }
 }
