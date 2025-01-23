@@ -35,6 +35,12 @@
       "relation": "oneToMany",
       "target": "api::standard-task.standard-task",
       "mappedBy": "sub_contractor"
+    },
+    "tasks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::task.task",
+      "mappedBy": "sub_contractor"
     }
   }
 }

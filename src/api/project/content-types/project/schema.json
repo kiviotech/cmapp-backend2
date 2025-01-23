@@ -68,6 +68,11 @@
       "relation": "manyToMany",
       "target": "api::project-team.project-team",
       "inversedBy": "projects"
+    },
+    "project_documents": {
+      "type": "component",
+      "repeatable": true,
+      "component": "documents.project-document"
     }
   }
 }

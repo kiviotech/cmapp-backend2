@@ -59,6 +59,15 @@
     },
     "Urls": {
       "type": "string"
+    },
+    "code": {
+      "type": "string",
+      "required": true,
+      "default": "A-100"
+    },
+    "drawing_code": {
+      "type": "string",
+      "description": "Code that matches with drawing documents (e.g., 'A-106')"
     }
   }
 }

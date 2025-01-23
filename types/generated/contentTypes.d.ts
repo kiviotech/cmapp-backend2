@@ -1092,6 +1092,7 @@ export interface ApiProjectProject extends Schema.CollectionType {
       'manyToMany',
       'api::project-team.project-team'
     >;
+    project_documents: Attribute.Component<'documents.project-document', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1292,6 +1293,8 @@ export interface ApiStandardTaskStandardTask extends Schema.CollectionType {
       'api::task.task'
     >;
     Urls: Attribute.String;
+    code: Attribute.String & Attribute.Required & Attribute.DefaultTo<'A-100'>;
+    drawing_code: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1338,6 +1341,11 @@ export interface ApiSubContractorSubContractor extends Schema.CollectionType {
       'api::sub-contractor.sub-contractor',
       'oneToMany',
       'api::standard-task.standard-task'
+    >;
+    tasks: Attribute.Relation<
+      'api::sub-contractor.sub-contractor',
+      'oneToMany',
+      'api::task.task'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1492,6 +1500,16 @@ export interface ApiTaskTask extends Schema.CollectionType {
       'oneToMany',
       'api::project-team.project-team'
     >;
+    sub_contractor: Attribute.Relation<
+      'api::task.task',
+      'manyToOne',
+      'api::sub-contractor.sub-contractor'
+    >;
+    drawing_code: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'A-106'>;
+    drawing_url: Attribute.String;
+    drawing_codes: Attribute.JSON;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
