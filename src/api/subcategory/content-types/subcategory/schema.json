@@ -41,7 +41,7 @@
         "audios"
       ]
     },
-    "inspection_forms": {
+    "insp_forms": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::inspection-form.inspection-form",

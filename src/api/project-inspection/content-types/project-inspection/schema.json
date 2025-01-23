@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "project_inspections",
+  "info": {
+    "singularName": "project-inspection",
+    "pluralName": "project-inspections",
+    "displayName": "Project_Inspection"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "project": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::project.project",
+      "inversedBy": "project_inspections"
+    },
+    "standard_inspection_form": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::inspection-form.inspection-form",
+      "inversedBy": "project_inspections"
+    },
+    "project_team": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::project-team.project-team",
+      "inversedBy": "project_inspections"
+    },
+    "inspection_date": {
+      "type": "date"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        " draft",
+        "submitted",
+        "reviewed",
+        "approved",
+        "rejected"
+      ]
+    }
+  }
+}

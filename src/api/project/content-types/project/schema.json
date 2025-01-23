@@ -68,6 +68,12 @@
       "relation": "oneToMany",
       "target": "api::task.task",
       "mappedBy": "project"
+    },
+    "project_inspections": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::project-inspection.project-inspection",
+      "mappedBy": "project"
     }
   }
 }

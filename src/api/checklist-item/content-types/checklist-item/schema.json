@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "checklist_items",
+  "info": {
+    "singularName": "checklist-item",
+    "pluralName": "checklist-items",
+    "displayName": "Checklist_Item"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "description": {
+      "type": "text"
+    },
+    "order": {
+      "type": "integer"
+    },
+    "inspection_section": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::inspection-section.inspection-section",
+      "inversedBy": "checklist_items"
+    },
+    "required": {
+      "type": "boolean"
+    },
+    "inspection_response": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::inspection-response.inspection-response",
+      "mappedBy": "checklist_item"
+    }
+  }
+}

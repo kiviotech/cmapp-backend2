@@ -4,25 +4,43 @@
   "info": {
     "singularName": "inspection-form",
     "pluralName": "inspection-forms",
-    "displayName": "Inspection_Form",
+    "displayName": "Standard_Inspection_Form",
     "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
-    "query": {
-      "type": "text"
+    "name": {
+      "type": "string"
     },
-    "isCompleted": {
-      "type": "boolean"
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "inspection_forms"
     },
     "subcategory": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::subcategory.subcategory",
-      "inversedBy": "inspection_forms"
+      "inversedBy": "insp_forms"
+    },
+    "description": {
+      "type": "string"
+    },
+    "inspection_sections": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::inspection-section.inspection-section",
+      "mappedBy": "standard_inspection_form"
+    },
+    "project_inspections": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::project-inspection.project-inspection",
+      "mappedBy": "standard_inspection_form"
     }
   }
 }

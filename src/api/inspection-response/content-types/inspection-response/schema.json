@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "inspection_responses",
+  "info": {
+    "singularName": "inspection-response",
+    "pluralName": "inspection-responses",
+    "displayName": "Inspection_Response"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "checklist_item": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::checklist-item.checklist-item",
+      "inversedBy": "inspection_response"
+    },
+    "checked": {
+      "type": "boolean"
+    },
+    "remakrs": {
+      "type": "text"
+    },
+    "attachemnts": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

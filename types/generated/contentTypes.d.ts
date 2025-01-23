@@ -911,6 +911,11 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
       'oneToMany',
       'api::subcategory.subcategory'
     >;
+    inspection_forms: Attribute.Relation<
+      'api::category.category',
+      'oneToMany',
+      'api::inspection-form.inspection-form'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -922,6 +927,48 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::category.category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiChecklistItemChecklistItem extends Schema.CollectionType {
+  collectionName: 'checklist_items';
+  info: {
+    singularName: 'checklist-item';
+    pluralName: 'checklist-items';
+    displayName: 'Checklist_Item';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    description: Attribute.Text;
+    order: Attribute.Integer;
+    inspection_section: Attribute.Relation<
+      'api::checklist-item.checklist-item',
+      'manyToOne',
+      'api::inspection-section.inspection-section'
+    >;
+    required: Attribute.Boolean;
+    inspection_response: Attribute.Relation<
+      'api::checklist-item.checklist-item',
+      'oneToOne',
+      'api::inspection-response.inspection-response'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::checklist-item.checklist-item',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::checklist-item.checklist-item',
       'oneToOne',
       'admin::user'
     > &
@@ -1062,23 +1109,37 @@ export interface ApiInspectionFormInspectionForm extends Schema.CollectionType {
   info: {
     singularName: 'inspection-form';
     pluralName: 'inspection-forms';
-    displayName: 'Inspection_Form';
+    displayName: 'Standard_Inspection_Form';
     description: '';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
-    query: Attribute.Text;
-    isCompleted: Attribute.Boolean;
+    name: Attribute.String;
+    category: Attribute.Relation<
+      'api::inspection-form.inspection-form',
+      'manyToOne',
+      'api::category.category'
+    >;
     subcategory: Attribute.Relation<
       'api::inspection-form.inspection-form',
       'manyToOne',
       'api::subcategory.subcategory'
     >;
+    description: Attribute.String;
+    inspection_sections: Attribute.Relation<
+      'api::inspection-form.inspection-form',
+      'oneToMany',
+      'api::inspection-section.inspection-section'
+    >;
+    project_inspections: Attribute.Relation<
+      'api::inspection-form.inspection-form',
+      'oneToMany',
+      'api::project-inspection.project-inspection'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
       'api::inspection-form.inspection-form',
       'oneToOne',
@@ -1087,6 +1148,90 @@ export interface ApiInspectionFormInspectionForm extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::inspection-form.inspection-form',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiInspectionResponseInspectionResponse
+  extends Schema.CollectionType {
+  collectionName: 'inspection_responses';
+  info: {
+    singularName: 'inspection-response';
+    pluralName: 'inspection-responses';
+    displayName: 'Inspection_Response';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    checklist_item: Attribute.Relation<
+      'api::inspection-response.inspection-response',
+      'oneToOne',
+      'api::checklist-item.checklist-item'
+    >;
+    checked: Attribute.Boolean;
+    remakrs: Attribute.Text;
+    attachemnts: Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::inspection-response.inspection-response',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::inspection-response.inspection-response',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiInspectionSectionInspectionSection
+  extends Schema.CollectionType {
+  collectionName: 'inspection_sections';
+  info: {
+    singularName: 'inspection-section';
+    pluralName: 'inspection-sections';
+    displayName: 'Inspection_Section';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    standard_inspection_form: Attribute.Relation<
+      'api::inspection-section.inspection-section',
+      'manyToOne',
+      'api::inspection-form.inspection-form'
+    >;
+    order: Attribute.Integer;
+    checklist_items: Attribute.Relation<
+      'api::inspection-section.inspection-section',
+      'oneToMany',
+      'api::checklist-item.checklist-item'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::inspection-section.inspection-section',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::inspection-section.inspection-section',
       'oneToOne',
       'admin::user'
     > &
@@ -1131,6 +1276,11 @@ export interface ApiProjectProject extends Schema.CollectionType {
       'oneToMany',
       'api::task.task'
     >;
+    project_inspections: Attribute.Relation<
+      'api::project.project',
+      'oneToMany',
+      'api::project-inspection.project-inspection'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1142,6 +1292,55 @@ export interface ApiProjectProject extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::project.project',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiProjectInspectionProjectInspection
+  extends Schema.CollectionType {
+  collectionName: 'project_inspections';
+  info: {
+    singularName: 'project-inspection';
+    pluralName: 'project-inspections';
+    displayName: 'Project_Inspection';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    project: Attribute.Relation<
+      'api::project-inspection.project-inspection',
+      'manyToOne',
+      'api::project.project'
+    >;
+    standard_inspection_form: Attribute.Relation<
+      'api::project-inspection.project-inspection',
+      'manyToOne',
+      'api::inspection-form.inspection-form'
+    >;
+    project_team: Attribute.Relation<
+      'api::project-inspection.project-inspection',
+      'manyToOne',
+      'api::project-team.project-team'
+    >;
+    inspection_date: Attribute.Date;
+    status: Attribute.Enumeration<
+      [' draft', 'submitted', 'reviewed', 'approved', 'rejected']
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::project-inspection.project-inspection',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::project-inspection.project-inspection',
       'oneToOne',
       'admin::user'
     > &
@@ -1181,6 +1380,11 @@ export interface ApiProjectTeamProjectTeam extends Schema.CollectionType {
       'api::project-team.project-team',
       'manyToMany',
       'api::project.project'
+    >;
+    project_inspections: Attribute.Relation<
+      'api::project-team.project-team',
+      'oneToMany',
+      'api::project-inspection.project-inspection'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1422,7 +1626,7 @@ export interface ApiSubcategorySubcategory extends Schema.CollectionType {
       'api::standard-task.standard-task'
     >;
     Drawings: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
-    inspection_forms: Attribute.Relation<
+    insp_forms: Attribute.Relation<
       'api::subcategory.subcategory',
       'oneToMany',
       'api::inspection-form.inspection-form'
@@ -1612,11 +1816,15 @@ declare module '@strapi/types' {
       'plugin::custom-api.custom-api': PluginCustomApiCustomApi;
       'api::access-control.access-control': ApiAccessControlAccessControl;
       'api::category.category': ApiCategoryCategory;
+      'api::checklist-item.checklist-item': ApiChecklistItemChecklistItem;
       'api::consultant.consultant': ApiConsultantConsultant;
       'api::contractor.contractor': ApiContractorContractor;
       'api::designation.designation': ApiDesignationDesignation;
       'api::inspection-form.inspection-form': ApiInspectionFormInspectionForm;
+      'api::inspection-response.inspection-response': ApiInspectionResponseInspectionResponse;
+      'api::inspection-section.inspection-section': ApiInspectionSectionInspectionSection;
       'api::project.project': ApiProjectProject;
+      'api::project-inspection.project-inspection': ApiProjectInspectionProjectInspection;
       'api::project-team.project-team': ApiProjectTeamProjectTeam;
       'api::registration.registration': ApiRegistrationRegistration;
       'api::stage.stage': ApiStageStage;

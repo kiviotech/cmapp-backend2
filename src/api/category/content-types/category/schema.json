@@ -28,6 +28,12 @@
       "relation": "oneToMany",
       "target": "api::subcategory.subcategory",
       "mappedBy": "category"
+    },
+    "inspection_forms": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::inspection-form.inspection-form",
+      "mappedBy": "category"
     }
   }
 }
