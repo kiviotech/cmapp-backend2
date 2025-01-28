@@ -4,7 +4,8 @@
   "info": {
     "singularName": "inspection-response",
     "pluralName": "inspection-responses",
-    "displayName": "Inspection_Response"
+    "displayName": "Inspection_Response",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -14,8 +15,7 @@
     "checklist_item": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::checklist-item.checklist-item",
-      "inversedBy": "inspection_response"
+      "target": "api::checklist-item.checklist-item"
     },
     "checked": {
       "type": "boolean"
@@ -24,14 +24,21 @@
       "type": "text"
     },
     "attachemnts": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
+    },
+    "project_inspection": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::project-inspection.project-inspection",
+      "inversedBy": "inspection_responses"
     }
   }
 }

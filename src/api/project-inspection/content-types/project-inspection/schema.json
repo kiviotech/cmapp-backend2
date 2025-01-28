@@ -4,7 +4,8 @@
   "info": {
     "singularName": "project-inspection",
     "pluralName": "project-inspections",
-    "displayName": "Project_Inspection"
+    "displayName": "Project_Inspection",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,12 +16,6 @@
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::project.project",
-      "inversedBy": "project_inspections"
-    },
-    "standard_inspection_form": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::inspection-form.inspection-form",
       "inversedBy": "project_inspections"
     },
     "project_team": {
@@ -35,12 +30,25 @@
     "status": {
       "type": "enumeration",
       "enum": [
-        " draft",
+        "draft",
         "submitted",
         "reviewed",
         "approved",
         "rejected"
-      ]
+      ],
+      "default": "draft"
+    },
+    "inspection_responses": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::inspection-response.inspection-response",
+      "mappedBy": "project_inspection"
+    },
+    "standard_inspection_form": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::standard-inspection-form.standard-inspection-form",
+      "inversedBy": "project_inspections"
     }
   }
 }

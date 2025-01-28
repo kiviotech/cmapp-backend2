@@ -54,6 +54,12 @@
     },
     "rejection_reason": {
       "type": "string"
+    },
+    "submitted_by": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "submissions"
     }
   }
 }

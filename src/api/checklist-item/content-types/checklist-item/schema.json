@@ -25,12 +25,6 @@
     },
     "required": {
       "type": "boolean"
-    },
-    "inspection_response": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::inspection-response.inspection-response",
-      "mappedBy": "checklist_item"
     }
   }
 }

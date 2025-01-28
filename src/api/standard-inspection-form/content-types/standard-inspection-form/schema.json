@@ -1,11 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "inspection_forms",
+  "collectionName": "standard_inspection_forms",
   "info": {
-    "singularName": "inspection-form",
-    "pluralName": "inspection-forms",
-    "displayName": "Standard_Inspection_Form",
-    "description": ""
+    "singularName": "standard-inspection-form",
+    "pluralName": "standard-inspection-forms",
+    "displayName": "Standard_Inspection_Form"
   },
   "options": {
     "draftAndPublish": false
@@ -28,7 +27,7 @@
       "inversedBy": "insp_forms"
     },
     "description": {
-      "type": "string"
+      "type": "text"
     },
     "inspection_sections": {
       "type": "relation",

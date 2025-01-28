@@ -15,12 +15,6 @@
     "title": {
       "type": "string"
     },
-    "standard_inspection_form": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::inspection-form.inspection-form",
-      "inversedBy": "inspection_sections"
-    },
     "order": {
       "type": "integer"
     },
@@ -29,6 +23,12 @@
       "relation": "oneToMany",
       "target": "api::checklist-item.checklist-item",
       "mappedBy": "inspection_section"
+    },
+    "standard_inspection_form": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::standard-inspection-form.standard-inspection-form",
+      "inversedBy": "inspection_sections"
     }
   }
 }

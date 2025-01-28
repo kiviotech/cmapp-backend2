@@ -82,6 +82,12 @@
       "relation": "oneToMany",
       "target": "api::task.task",
       "mappedBy": "project_team_member"
+    },
+    "submissions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::submission.submission",
+      "mappedBy": "submitted_by"
     }
   }
 }
