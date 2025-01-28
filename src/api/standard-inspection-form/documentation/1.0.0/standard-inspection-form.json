@@ -1,5 +1,5 @@
 {
-  "/inspection-forms": {
+  "/standard-inspection-forms": {
     "get": {
       "responses": {
         "200": {
@@ -7,7 +7,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/InspectionFormListResponse"
+                "$ref": "#/components/schemas/StandardInspectionFormListResponse"
               }
             }
           }
@@ -64,7 +64,7 @@
         }
       },
       "tags": [
-        "Inspection-form"
+        "Standard-inspection-form"
       ],
       "parameters": [
         {
@@ -170,7 +170,7 @@
           }
         }
       ],
-      "operationId": "get/inspection-forms"
+      "operationId": "get/standard-inspection-forms"
     },
     "post": {
       "responses": {
@@ -179,7 +179,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/InspectionFormResponse"
+                "$ref": "#/components/schemas/StandardInspectionFormResponse"
               }
             }
           }
@@ -236,23 +236,23 @@
         }
       },
       "tags": [
-        "Inspection-form"
+        "Standard-inspection-form"
       ],
       "parameters": [],
-      "operationId": "post/inspection-forms",
+      "operationId": "post/standard-inspection-forms",
       "requestBody": {
         "required": true,
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/InspectionFormRequest"
+              "$ref": "#/components/schemas/StandardInspectionFormRequest"
             }
           }
         }
       }
     }
   },
-  "/inspection-forms/{id}": {
+  "/standard-inspection-forms/{id}": {
     "get": {
       "responses": {
         "200": {
@@ -260,7 +260,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/InspectionFormResponse"
+                "$ref": "#/components/schemas/StandardInspectionFormResponse"
               }
             }
           }
@@ -317,7 +317,7 @@
         }
       },
       "tags": [
-        "Inspection-form"
+        "Standard-inspection-form"
       ],
       "parameters": [
         {
@@ -331,7 +331,7 @@
           }
         }
       ],
-      "operationId": "get/inspection-forms/{id}"
+      "operationId": "get/standard-inspection-forms/{id}"
     },
     "put": {
       "responses": {
@@ -340,7 +340,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/InspectionFormResponse"
+                "$ref": "#/components/schemas/StandardInspectionFormResponse"
               }
             }
           }
@@ -397,7 +397,7 @@
         }
       },
       "tags": [
-        "Inspection-form"
+        "Standard-inspection-form"
       ],
       "parameters": [
         {
@@ -411,13 +411,13 @@
           }
         }
       ],
-      "operationId": "put/inspection-forms/{id}",
+      "operationId": "put/standard-inspection-forms/{id}",
       "requestBody": {
         "required": true,
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/InspectionFormRequest"
+              "$ref": "#/components/schemas/StandardInspectionFormRequest"
             }
           }
         }
@@ -488,7 +488,7 @@
         }
       },
       "tags": [
-        "Inspection-form"
+        "Standard-inspection-form"
       ],
       "parameters": [
         {
@@ -502,7 +502,7 @@
           }
         }
       ],
-      "operationId": "delete/inspection-forms/{id}"
+      "operationId": "delete/standard-inspection-forms/{id}"
     }
   }
 }

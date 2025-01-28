@@ -4,7 +4,8 @@
   "info": {
     "singularName": "inspection-response",
     "pluralName": "inspection-responses",
-    "displayName": "Inspection_Response"
+    "displayName": "Inspection_Response",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -18,20 +19,22 @@
       "inversedBy": "inspection_response"
     },
     "checked": {
-      "type": "boolean"
+      "type": "boolean",
+      "default": false
     },
     "remakrs": {
       "type": "text"
     },
     "attachemnts": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     }
   }
 }

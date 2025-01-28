@@ -29,10 +29,10 @@
       "target": "api::subcategory.subcategory",
       "mappedBy": "category"
     },
-    "inspection_forms": {
+    "standard_inspection_forms": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::inspection-form.inspection-form",
+      "target": "api::standard-inspection-form.standard-inspection-form",
       "mappedBy": "category"
     }
   }

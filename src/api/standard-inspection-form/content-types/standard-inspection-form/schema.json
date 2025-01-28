@@ -1,34 +1,33 @@
 {
   "kind": "collectionType",
-  "collectionName": "inspection_forms",
+  "collectionName": "standard_inspection_forms",
   "info": {
-    "singularName": "inspection-form",
-    "pluralName": "inspection-forms",
-    "displayName": "Standard_Inspection_Form",
-    "description": ""
+    "singularName": "standard-inspection-form",
+    "pluralName": "standard-inspection-forms",
+    "displayName": "Standard_Inspection_Form"
   },
   "options": {
-    "draftAndPublish": false
+    "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
     "name": {
       "type": "string"
     },
-    "category": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::category.category",
-      "inversedBy": "inspection_forms"
-    },
     "subcategory": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::subcategory.subcategory",
-      "inversedBy": "insp_forms"
+      "inversedBy": "standard_inspection_forms"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "standard_inspection_forms"
     },
     "description": {
-      "type": "string"
+      "type": "text"
     },
     "inspection_sections": {
       "type": "relation",
