@@ -15,8 +15,7 @@
     "checklist_item": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::checklist-item.checklist-item",
-      "inversedBy": "inspection_response"
+      "target": "api::checklist-item.checklist-item"
     },
     "checked": {
       "type": "boolean",
@@ -35,6 +34,12 @@
         "videos",
         "audios"
       ]
+    },
+    "project_inspection": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::project-inspection.project-inspection",
+      "inversedBy": "inspection_responses"
     }
   }
 }
