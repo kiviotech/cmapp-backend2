@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-01-28T07:04:22.439Z"
+    "x-generation-date": "2025-02-20T06:47:21.648Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -3665,6 +3665,23 @@
                                                                   }
                                                                 }
                                                               },
+                                                              "HomeBuyer": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                  "data": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                      "id": {
+                                                                        "type": "number"
+                                                                      },
+                                                                      "attributes": {
+                                                                        "type": "object",
+                                                                        "properties": {}
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              },
                                                               "createdAt": {
                                                                 "type": "string",
                                                                 "format": "date-time"
@@ -4301,6 +4318,23 @@
                                                   "type": "object",
                                                   "properties": {}
                                                 }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "project": {
+                                        "type": "object",
+                                        "properties": {
+                                          "data": {
+                                            "type": "object",
+                                            "properties": {
+                                              "id": {
+                                                "type": "number"
+                                              },
+                                              "attributes": {
+                                                "type": "object",
+                                                "properties": {}
                                               }
                                             }
                                           }
@@ -7375,6 +7409,23 @@
                                                                                                                       }
                                                                                                                     }
                                                                                                                   },
+                                                                                                                  "HomeBuyer": {
+                                                                                                                    "type": "object",
+                                                                                                                    "properties": {
+                                                                                                                      "data": {
+                                                                                                                        "type": "object",
+                                                                                                                        "properties": {
+                                                                                                                          "id": {
+                                                                                                                            "type": "number"
+                                                                                                                          },
+                                                                                                                          "attributes": {
+                                                                                                                            "type": "object",
+                                                                                                                            "properties": {}
+                                                                                                                          }
+                                                                                                                        }
+                                                                                                                      }
+                                                                                                                    }
+                                                                                                                  },
                                                                                                                   "createdAt": {
                                                                                                                     "type": "string",
                                                                                                                     "format": "date-time"
@@ -8011,6 +8062,23 @@
                                                                                                       "type": "object",
                                                                                                       "properties": {}
                                                                                                     }
+                                                                                                  }
+                                                                                                }
+                                                                                              }
+                                                                                            }
+                                                                                          },
+                                                                                          "project": {
+                                                                                            "type": "object",
+                                                                                            "properties": {
+                                                                                              "data": {
+                                                                                                "type": "object",
+                                                                                                "properties": {
+                                                                                                  "id": {
+                                                                                                    "type": "number"
+                                                                                                  },
+                                                                                                  "attributes": {
+                                                                                                    "type": "object",
+                                                                                                    "properties": {}
                                                                                                   }
                                                                                                 }
                                                                                               }
@@ -11647,6 +11715,23 @@
                                                                                                                                 }
                                                                                                                               }
                                                                                                                             },
+                                                                                                                            "HomeBuyer": {
+                                                                                                                              "type": "object",
+                                                                                                                              "properties": {
+                                                                                                                                "data": {
+                                                                                                                                  "type": "object",
+                                                                                                                                  "properties": {
+                                                                                                                                    "id": {
+                                                                                                                                      "type": "number"
+                                                                                                                                    },
+                                                                                                                                    "attributes": {
+                                                                                                                                      "type": "object",
+                                                                                                                                      "properties": {}
+                                                                                                                                    }
+                                                                                                                                  }
+                                                                                                                                }
+                                                                                                                              }
+                                                                                                                            },
                                                                                                                             "createdAt": {
                                                                                                                               "type": "string",
                                                                                                                               "format": "date-time"
@@ -12283,6 +12368,23 @@
                                                                                                                 "type": "object",
                                                                                                                 "properties": {}
                                                                                                               }
+                                                                                                            }
+                                                                                                          }
+                                                                                                        }
+                                                                                                      }
+                                                                                                    },
+                                                                                                    "project": {
+                                                                                                      "type": "object",
+                                                                                                      "properties": {
+                                                                                                        "data": {
+                                                                                                          "type": "object",
+                                                                                                          "properties": {
+                                                                                                            "id": {
+                                                                                                              "type": "number"
+                                                                                                            },
+                                                                                                            "attributes": {
+                                                                                                              "type": "object",
+                                                                                                              "properties": {}
                                                                                                             }
                                                                                                           }
                                                                                                         }
@@ -15695,6 +15797,23 @@
                                                                                                                       }
                                                                                                                     }
                                                                                                                   },
+                                                                                                                  "project": {
+                                                                                                                    "type": "object",
+                                                                                                                    "properties": {
+                                                                                                                      "data": {
+                                                                                                                        "type": "object",
+                                                                                                                        "properties": {
+                                                                                                                          "id": {
+                                                                                                                            "type": "number"
+                                                                                                                          },
+                                                                                                                          "attributes": {
+                                                                                                                            "type": "object",
+                                                                                                                            "properties": {}
+                                                                                                                          }
+                                                                                                                        }
+                                                                                                                      }
+                                                                                                                    }
+                                                                                                                  },
                                                                                                                   "createdAt": {
                                                                                                                     "type": "string",
                                                                                                                     "format": "date-time"
@@ -16403,6 +16522,23 @@
                                                                                                     "type": "object",
                                                                                                     "properties": {}
                                                                                                   }
+                                                                                                }
+                                                                                              }
+                                                                                            }
+                                                                                          }
+                                                                                        },
+                                                                                        "HomeBuyer": {
+                                                                                          "type": "object",
+                                                                                          "properties": {
+                                                                                            "data": {
+                                                                                              "type": "object",
+                                                                                              "properties": {
+                                                                                                "id": {
+                                                                                                  "type": "number"
+                                                                                                },
+                                                                                                "attributes": {
+                                                                                                  "type": "object",
+                                                                                                  "properties": {}
                                                                                                 }
                                                                                               }
                                                                                             }
@@ -21497,6 +21633,23 @@
                                                       }
                                                     }
                                                   },
+                                                  "project": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                      "data": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                          "id": {
+                                                            "type": "number"
+                                                          },
+                                                          "attributes": {
+                                                            "type": "object",
+                                                            "properties": {}
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  },
                                                   "createdAt": {
                                                     "type": "string",
                                                     "format": "date-time"
@@ -21842,6 +21995,23 @@
                                     "type": "object",
                                     "properties": {}
                                   }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "HomeBuyer": {
+                          "type": "object",
+                          "properties": {
+                            "data": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "number"
+                                },
+                                "attributes": {
+                                  "type": "object",
+                                  "properties": {}
                                 }
                               }
                             }
@@ -25693,6 +25863,23 @@
                                                                 }
                                                               }
                                                             },
+                                                            "HomeBuyer": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "data": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                    "id": {
+                                                                      "type": "number"
+                                                                    },
+                                                                    "attributes": {
+                                                                      "type": "object",
+                                                                      "properties": {}
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            },
                                                             "createdAt": {
                                                               "type": "string",
                                                               "format": "date-time"
@@ -26329,6 +26516,23 @@
                                                 "type": "object",
                                                 "properties": {}
                                               }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "project": {
+                                      "type": "object",
+                                      "properties": {
+                                        "data": {
+                                          "type": "object",
+                                          "properties": {
+                                            "id": {
+                                              "type": "number"
+                                            },
+                                            "attributes": {
+                                              "type": "object",
+                                              "properties": {}
                                             }
                                           }
                                         }
@@ -29234,6 +29438,23 @@
                                                                                                                                             }
                                                                                                                                           }
                                                                                                                                         },
+                                                                                                                                        "HomeBuyer": {
+                                                                                                                                          "type": "object",
+                                                                                                                                          "properties": {
+                                                                                                                                            "data": {
+                                                                                                                                              "type": "object",
+                                                                                                                                              "properties": {
+                                                                                                                                                "id": {
+                                                                                                                                                  "type": "number"
+                                                                                                                                                },
+                                                                                                                                                "attributes": {
+                                                                                                                                                  "type": "object",
+                                                                                                                                                  "properties": {}
+                                                                                                                                                }
+                                                                                                                                              }
+                                                                                                                                            }
+                                                                                                                                          }
+                                                                                                                                        },
                                                                                                                                         "createdAt": {
                                                                                                                                           "type": "string",
                                                                                                                                           "format": "date-time"
@@ -29870,6 +30091,23 @@
                                                                                                                             "type": "object",
                                                                                                                             "properties": {}
                                                                                                                           }
+                                                                                                                        }
+                                                                                                                      }
+                                                                                                                    }
+                                                                                                                  }
+                                                                                                                },
+                                                                                                                "project": {
+                                                                                                                  "type": "object",
+                                                                                                                  "properties": {
+                                                                                                                    "data": {
+                                                                                                                      "type": "object",
+                                                                                                                      "properties": {
+                                                                                                                        "id": {
+                                                                                                                          "type": "number"
+                                                                                                                        },
+                                                                                                                        "attributes": {
+                                                                                                                          "type": "object",
+                                                                                                                          "properties": {}
                                                                                                                         }
                                                                                                                       }
                                                                                                                     }
@@ -33751,6 +33989,23 @@
                                                                                                                                               }
                                                                                                                                             }
                                                                                                                                           },
+                                                                                                                                          "HomeBuyer": {
+                                                                                                                                            "type": "object",
+                                                                                                                                            "properties": {
+                                                                                                                                              "data": {
+                                                                                                                                                "type": "object",
+                                                                                                                                                "properties": {
+                                                                                                                                                  "id": {
+                                                                                                                                                    "type": "number"
+                                                                                                                                                  },
+                                                                                                                                                  "attributes": {
+                                                                                                                                                    "type": "object",
+                                                                                                                                                    "properties": {}
+                                                                                                                                                  }
+                                                                                                                                                }
+                                                                                                                                              }
+                                                                                                                                            }
+                                                                                                                                          },
                                                                                                                                           "createdAt": {
                                                                                                                                             "type": "string",
                                                                                                                                             "format": "date-time"
@@ -34387,6 +34642,23 @@
                                                                                                                               "type": "object",
                                                                                                                               "properties": {}
                                                                                                                             }
+                                                                                                                          }
+                                                                                                                        }
+                                                                                                                      }
+                                                                                                                    }
+                                                                                                                  },
+                                                                                                                  "project": {
+                                                                                                                    "type": "object",
+                                                                                                                    "properties": {
+                                                                                                                      "data": {
+                                                                                                                        "type": "object",
+                                                                                                                        "properties": {
+                                                                                                                          "id": {
+                                                                                                                            "type": "number"
+                                                                                                                          },
+                                                                                                                          "attributes": {
+                                                                                                                            "type": "object",
+                                                                                                                            "properties": {}
                                                                                                                           }
                                                                                                                         }
                                                                                                                       }
@@ -35506,6 +35778,17 @@
                   ],
                   "example": "string or id"
                 }
+              },
+              "HomeBuyer": {
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ],
+                "example": "string or id"
               }
             }
           }
@@ -39240,6 +39523,23 @@
                                                                       }
                                                                     }
                                                                   },
+                                                                  "project": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                      "data": {
+                                                                        "type": "object",
+                                                                        "properties": {
+                                                                          "id": {
+                                                                            "type": "number"
+                                                                          },
+                                                                          "attributes": {
+                                                                            "type": "object",
+                                                                            "properties": {}
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  },
                                                                   "createdAt": {
                                                                     "type": "string",
                                                                     "format": "date-time"
@@ -39457,6 +39757,23 @@
                                                   "type": "object",
                                                   "properties": {}
                                                 }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "HomeBuyer": {
+                                        "type": "object",
+                                        "properties": {
+                                          "data": {
+                                            "type": "object",
+                                            "properties": {
+                                              "id": {
+                                                "type": "number"
+                                              },
+                                              "attributes": {
+                                                "type": "object",
+                                                "properties": {}
                                               }
                                             }
                                           }
@@ -39971,6 +40288,23 @@
                       "type": "object",
                       "properties": {}
                     }
+                  }
+                }
+              }
+            }
+          },
+          "HomeBuyer": {
+            "type": "object",
+            "properties": {
+              "data": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "attributes": {
+                    "type": "object",
+                    "properties": {}
                   }
                 }
               }
@@ -43948,6 +44282,23 @@
                                                     }
                                                   }
                                                 },
+                                                "project": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "data": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "id": {
+                                                          "type": "number"
+                                                        },
+                                                        "attributes": {
+                                                          "type": "object",
+                                                          "properties": {}
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                },
                                                 "createdAt": {
                                                   "type": "string",
                                                   "format": "date-time"
@@ -44293,6 +44644,23 @@
                                   "type": "object",
                                   "properties": {}
                                 }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "HomeBuyer": {
+                        "type": "object",
+                        "properties": {
+                          "data": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "number"
+                              },
+                              "attributes": {
+                                "type": "object",
+                                "properties": {}
                               }
                             }
                           }
@@ -48114,6 +48482,23 @@
                                                     }
                                                   }
                                                 },
+                                                "HomeBuyer": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "data": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "id": {
+                                                          "type": "number"
+                                                        },
+                                                        "attributes": {
+                                                          "type": "object",
+                                                          "properties": {}
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                },
                                                 "createdAt": {
                                                   "type": "string",
                                                   "format": "date-time"
@@ -48750,6 +49135,23 @@
                                     "type": "object",
                                     "properties": {}
                                   }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "project": {
+                          "type": "object",
+                          "properties": {
+                            "data": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "number"
+                                },
+                                "attributes": {
+                                  "type": "object",
+                                  "properties": {}
                                 }
                               }
                             }
@@ -52734,6 +53136,23 @@
                                                   }
                                                 }
                                               },
+                                              "HomeBuyer": {
+                                                "type": "object",
+                                                "properties": {
+                                                  "data": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                      "id": {
+                                                        "type": "number"
+                                                      },
+                                                      "attributes": {
+                                                        "type": "object",
+                                                        "properties": {}
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              },
                                               "createdAt": {
                                                 "type": "string",
                                                 "format": "date-time"
@@ -53370,6 +53789,23 @@
                                   "type": "object",
                                   "properties": {}
                                 }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "project": {
+                        "type": "object",
+                        "properties": {
+                          "data": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "number"
+                              },
+                              "attributes": {
+                                "type": "object",
+                                "properties": {}
                               }
                             }
                           }
@@ -56455,6 +56891,23 @@
                                                                                                           }
                                                                                                         }
                                                                                                       },
+                                                                                                      "HomeBuyer": {
+                                                                                                        "type": "object",
+                                                                                                        "properties": {
+                                                                                                          "data": {
+                                                                                                            "type": "object",
+                                                                                                            "properties": {
+                                                                                                              "id": {
+                                                                                                                "type": "number"
+                                                                                                              },
+                                                                                                              "attributes": {
+                                                                                                                "type": "object",
+                                                                                                                "properties": {}
+                                                                                                              }
+                                                                                                            }
+                                                                                                          }
+                                                                                                        }
+                                                                                                      },
                                                                                                       "createdAt": {
                                                                                                         "type": "string",
                                                                                                         "format": "date-time"
@@ -57091,6 +57544,23 @@
                                                                                           "type": "object",
                                                                                           "properties": {}
                                                                                         }
+                                                                                      }
+                                                                                    }
+                                                                                  }
+                                                                                }
+                                                                              },
+                                                                              "project": {
+                                                                                "type": "object",
+                                                                                "properties": {
+                                                                                  "data": {
+                                                                                    "type": "object",
+                                                                                    "properties": {
+                                                                                      "id": {
+                                                                                        "type": "number"
+                                                                                      },
+                                                                                      "attributes": {
+                                                                                        "type": "object",
+                                                                                        "properties": {}
                                                                                       }
                                                                                     }
                                                                                   }
@@ -60828,6 +61298,23 @@
                                                                                                         }
                                                                                                       }
                                                                                                     },
+                                                                                                    "HomeBuyer": {
+                                                                                                      "type": "object",
+                                                                                                      "properties": {
+                                                                                                        "data": {
+                                                                                                          "type": "object",
+                                                                                                          "properties": {
+                                                                                                            "id": {
+                                                                                                              "type": "number"
+                                                                                                            },
+                                                                                                            "attributes": {
+                                                                                                              "type": "object",
+                                                                                                              "properties": {}
+                                                                                                            }
+                                                                                                          }
+                                                                                                        }
+                                                                                                      }
+                                                                                                    },
                                                                                                     "createdAt": {
                                                                                                       "type": "string",
                                                                                                       "format": "date-time"
@@ -61464,6 +61951,23 @@
                                                                                         "type": "object",
                                                                                         "properties": {}
                                                                                       }
+                                                                                    }
+                                                                                  }
+                                                                                }
+                                                                              }
+                                                                            },
+                                                                            "project": {
+                                                                              "type": "object",
+                                                                              "properties": {
+                                                                                "data": {
+                                                                                  "type": "object",
+                                                                                  "properties": {
+                                                                                    "id": {
+                                                                                      "type": "number"
+                                                                                    },
+                                                                                    "attributes": {
+                                                                                      "type": "object",
+                                                                                      "properties": {}
                                                                                     }
                                                                                   }
                                                                                 }
@@ -65550,6 +66054,23 @@
                                                                                                         }
                                                                                                       }
                                                                                                     },
+                                                                                                    "project": {
+                                                                                                      "type": "object",
+                                                                                                      "properties": {
+                                                                                                        "data": {
+                                                                                                          "type": "object",
+                                                                                                          "properties": {
+                                                                                                            "id": {
+                                                                                                              "type": "number"
+                                                                                                            },
+                                                                                                            "attributes": {
+                                                                                                              "type": "object",
+                                                                                                              "properties": {}
+                                                                                                            }
+                                                                                                          }
+                                                                                                        }
+                                                                                                      }
+                                                                                                    },
                                                                                                     "createdAt": {
                                                                                                       "type": "string",
                                                                                                       "format": "date-time"
@@ -65895,6 +66416,23 @@
                                                                                       "type": "object",
                                                                                       "properties": {}
                                                                                     }
+                                                                                  }
+                                                                                }
+                                                                              }
+                                                                            }
+                                                                          },
+                                                                          "HomeBuyer": {
+                                                                            "type": "object",
+                                                                            "properties": {
+                                                                              "data": {
+                                                                                "type": "object",
+                                                                                "properties": {
+                                                                                  "id": {
+                                                                                    "type": "number"
+                                                                                  },
+                                                                                  "attributes": {
+                                                                                    "type": "object",
+                                                                                    "properties": {}
                                                                                   }
                                                                                 }
                                                                               }
@@ -70450,6 +70988,23 @@
                                                               }
                                                             }
                                                           },
+                                                          "HomeBuyer": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                              "data": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                  "id": {
+                                                                    "type": "number"
+                                                                  },
+                                                                  "attributes": {
+                                                                    "type": "object",
+                                                                    "properties": {}
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          },
                                                           "createdAt": {
                                                             "type": "string",
                                                             "format": "date-time"
@@ -71086,6 +71641,23 @@
                                               "type": "object",
                                               "properties": {}
                                             }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "project": {
+                                    "type": "object",
+                                    "properties": {
+                                      "data": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "type": "number"
+                                          },
+                                          "attributes": {
+                                            "type": "object",
+                                            "properties": {}
                                           }
                                         }
                                       }
@@ -74300,6 +74872,23 @@
                                                                                                         }
                                                                                                       }
                                                                                                     },
+                                                                                                    "HomeBuyer": {
+                                                                                                      "type": "object",
+                                                                                                      "properties": {
+                                                                                                        "data": {
+                                                                                                          "type": "object",
+                                                                                                          "properties": {
+                                                                                                            "id": {
+                                                                                                              "type": "number"
+                                                                                                            },
+                                                                                                            "attributes": {
+                                                                                                              "type": "object",
+                                                                                                              "properties": {}
+                                                                                                            }
+                                                                                                          }
+                                                                                                        }
+                                                                                                      }
+                                                                                                    },
                                                                                                     "createdAt": {
                                                                                                       "type": "string",
                                                                                                       "format": "date-time"
@@ -74936,6 +75525,23 @@
                                                                                         "type": "object",
                                                                                         "properties": {}
                                                                                       }
+                                                                                    }
+                                                                                  }
+                                                                                }
+                                                                              }
+                                                                            },
+                                                                            "project": {
+                                                                              "type": "object",
+                                                                              "properties": {
+                                                                                "data": {
+                                                                                  "type": "object",
+                                                                                  "properties": {
+                                                                                    "id": {
+                                                                                      "type": "number"
+                                                                                    },
+                                                                                    "attributes": {
+                                                                                      "type": "object",
+                                                                                      "properties": {}
                                                                                     }
                                                                                   }
                                                                                 }
@@ -77697,6 +78303,23 @@
                                                                 }
                                                               }
                                                             },
+                                                            "project": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "data": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                    "id": {
+                                                                      "type": "number"
+                                                                    },
+                                                                    "attributes": {
+                                                                      "type": "object",
+                                                                      "properties": {}
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            },
                                                             "createdAt": {
                                                               "type": "string",
                                                               "format": "date-time"
@@ -80002,6 +80625,23 @@
                                               "type": "object",
                                               "properties": {}
                                             }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "HomeBuyer": {
+                                    "type": "object",
+                                    "properties": {
+                                      "data": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "type": "number"
+                                          },
+                                          "attributes": {
+                                            "type": "object",
+                                            "properties": {}
                                           }
                                         }
                                       }
@@ -84402,6 +85042,23 @@
                                                     }
                                                   }
                                                 },
+                                                "project": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "data": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "id": {
+                                                          "type": "number"
+                                                        },
+                                                        "attributes": {
+                                                          "type": "object",
+                                                          "properties": {}
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                },
                                                 "createdAt": {
                                                   "type": "string",
                                                   "format": "date-time"
@@ -84747,6 +85404,23 @@
                                   "type": "object",
                                   "properties": {}
                                 }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "HomeBuyer": {
+                        "type": "object",
+                        "properties": {
+                          "data": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "number"
+                              },
+                              "attributes": {
+                                "type": "object",
+                                "properties": {}
                               }
                             }
                           }
@@ -88613,6 +89287,23 @@
                                                                                 }
                                                                               }
                                                                             },
+                                                                            "HomeBuyer": {
+                                                                              "type": "object",
+                                                                              "properties": {
+                                                                                "data": {
+                                                                                  "type": "object",
+                                                                                  "properties": {
+                                                                                    "id": {
+                                                                                      "type": "number"
+                                                                                    },
+                                                                                    "attributes": {
+                                                                                      "type": "object",
+                                                                                      "properties": {}
+                                                                                    }
+                                                                                  }
+                                                                                }
+                                                                              }
+                                                                            },
                                                                             "createdAt": {
                                                                               "type": "string",
                                                                               "format": "date-time"
@@ -89249,6 +89940,23 @@
                                                                 "type": "object",
                                                                 "properties": {}
                                                               }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    },
+                                                    "project": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "data": {
+                                                          "type": "object",
+                                                          "properties": {
+                                                            "id": {
+                                                              "type": "number"
+                                                            },
+                                                            "attributes": {
+                                                              "type": "object",
+                                                              "properties": {}
                                                             }
                                                           }
                                                         }

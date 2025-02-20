@@ -743,6 +743,11 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'oneToMany',
       'api::submission.submission'
     >;
+    project: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'oneToOne',
+      'api::project.project'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1235,6 +1240,11 @@ export interface ApiProjectProject extends Schema.CollectionType {
       'api::project.project',
       'oneToMany',
       'api::project-inspection.project-inspection'
+    >;
+    HomeBuyer: Attribute.Relation<
+      'api::project.project',
+      'oneToOne',
+      'plugin::users-permissions.user'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
