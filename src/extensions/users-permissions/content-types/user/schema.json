@@ -88,6 +88,12 @@
       "relation": "oneToMany",
       "target": "api::submission.submission",
       "mappedBy": "submitted_by"
+    },
+    "project": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::project.project",
+      "mappedBy": "HomeBuyer"
     }
   }
 }
