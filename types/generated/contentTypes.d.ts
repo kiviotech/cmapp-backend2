@@ -748,6 +748,16 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'oneToOne',
       'api::project.project'
     >;
+    directories: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'oneToMany',
+      'api::directory.directory'
+    >;
+    records: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'oneToMany',
+      'api::record.record'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1109,6 +1119,46 @@ export interface ApiDesignationDesignation extends Schema.CollectionType {
   };
 }
 
+export interface ApiDirectoryDirectory extends Schema.CollectionType {
+  collectionName: 'directories';
+  info: {
+    singularName: 'directory';
+    pluralName: 'directories';
+    displayName: 'Directory';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    name: Attribute.String;
+    creator: Attribute.Relation<
+      'api::directory.directory',
+      'manyToOne',
+      'plugin::users-permissions.user'
+    >;
+    records: Attribute.Relation<
+      'api::directory.directory',
+      'oneToMany',
+      'api::record.record'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::directory.directory',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::directory.directory',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiInspectionResponseInspectionResponse
   extends Schema.CollectionType {
   collectionName: 'inspection_responses';
@@ -1369,6 +1419,48 @@ export interface ApiProjectTeamProjectTeam extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::project-team.project-team',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiRecordRecord extends Schema.CollectionType {
+  collectionName: 'records';
+  info: {
+    singularName: 'record';
+    pluralName: 'records';
+    displayName: 'Record';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    record_name: Attribute.String;
+    directory: Attribute.Relation<
+      'api::record.record',
+      'manyToOne',
+      'api::directory.directory'
+    >;
+    record_type: Attribute.Enumeration<['pdf', 'doc', 'png', 'jpeg', 'xlsx']>;
+    uploaded_by: Attribute.Relation<
+      'api::record.record',
+      'manyToOne',
+      'plugin::users-permissions.user'
+    >;
+    files: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::record.record',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::record.record',
       'oneToOne',
       'admin::user'
     > &
@@ -1848,11 +1940,13 @@ declare module '@strapi/types' {
       'api::consultant.consultant': ApiConsultantConsultant;
       'api::contractor.contractor': ApiContractorContractor;
       'api::designation.designation': ApiDesignationDesignation;
+      'api::directory.directory': ApiDirectoryDirectory;
       'api::inspection-response.inspection-response': ApiInspectionResponseInspectionResponse;
       'api::inspection-section.inspection-section': ApiInspectionSectionInspectionSection;
       'api::project.project': ApiProjectProject;
       'api::project-inspection.project-inspection': ApiProjectInspectionProjectInspection;
       'api::project-team.project-team': ApiProjectTeamProjectTeam;
+      'api::record.record': ApiRecordRecord;
       'api::registration.registration': ApiRegistrationRegistration;
       'api::stage.stage': ApiStageStage;
       'api::standard-inspection-form.standard-inspection-form': ApiStandardInspectionFormStandardInspectionForm;
