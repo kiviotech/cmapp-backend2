@@ -1506,57 +1506,6 @@ export interface ApiStandardInspectionFormStandardInspectionForm
   };
 }
 
-export interface ApiStandardInspectionFormStandardInspectionForm
-  extends Schema.CollectionType {
-  collectionName: 'standard_inspection_forms';
-  info: {
-    singularName: 'standard-inspection-form';
-    pluralName: 'standard-inspection-forms';
-    displayName: 'Standard_Inspection_Form';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    name: Attribute.String;
-    category: Attribute.Relation<
-      'api::standard-inspection-form.standard-inspection-form',
-      'manyToOne',
-      'api::category.category'
-    >;
-    subcategory: Attribute.Relation<
-      'api::standard-inspection-form.standard-inspection-form',
-      'manyToOne',
-      'api::subcategory.subcategory'
-    >;
-    description: Attribute.Text;
-    inspection_sections: Attribute.Relation<
-      'api::standard-inspection-form.standard-inspection-form',
-      'oneToMany',
-      'api::inspection-section.inspection-section'
-    >;
-    project_inspections: Attribute.Relation<
-      'api::standard-inspection-form.standard-inspection-form',
-      'oneToMany',
-      'api::project-inspection.project-inspection'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::standard-inspection-form.standard-inspection-form',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::standard-inspection-form.standard-inspection-form',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiStandardTaskStandardTask extends Schema.CollectionType {
   collectionName: 'standard_tasks';
   info: {
