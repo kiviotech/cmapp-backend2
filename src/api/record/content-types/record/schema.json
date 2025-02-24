@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "records",
+  "info": {
+    "singularName": "record",
+    "pluralName": "records",
+    "displayName": "Record",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "record_name": {
+      "type": "string"
+    },
+    "directory": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::directory.directory",
+      "inversedBy": "records"
+    },
+    "record_type": {
+      "type": "enumeration",
+      "enum": [
+        "pdf",
+        "doc",
+        "png",
+        "jpeg",
+        "xlsx"
+      ]
+    },
+    "uploaded_by": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "records"
+    },
+    "files": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

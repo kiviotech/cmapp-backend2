@@ -88,6 +88,24 @@
       "relation": "oneToMany",
       "target": "api::submission.submission",
       "mappedBy": "submitted_by"
+    },
+    "project": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::project.project",
+      "mappedBy": "HomeBuyer"
+    },
+    "directories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::directory.directory",
+      "mappedBy": "creator"
+    },
+    "records": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::record.record",
+      "mappedBy": "uploaded_by"
     }
   }
 }

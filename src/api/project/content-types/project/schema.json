@@ -74,6 +74,12 @@
       "relation": "oneToMany",
       "target": "api::project-inspection.project-inspection",
       "mappedBy": "project"
+    },
+    "HomeBuyer": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "project"
     }
   }
 }

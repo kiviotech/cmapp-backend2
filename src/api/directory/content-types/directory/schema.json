@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "directories",
+  "info": {
+    "singularName": "directory",
+    "pluralName": "directories",
+    "displayName": "Directory",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "creator": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "directories"
+    },
+    "records": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::record.record",
+      "mappedBy": "directory"
+    }
+  }
+}
