@@ -69,6 +69,11 @@
       "target": "api::task.task",
       "mappedBy": "project"
     },
+    "project_documents": {
+      "type": "component",
+      "repeatable": true,
+      "component": "documents.project-document"
+    },
     "project_inspections": {
       "type": "relation",
       "relation": "oneToMany",

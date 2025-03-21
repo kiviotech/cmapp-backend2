@@ -71,6 +71,27 @@
       "relation": "oneToMany",
       "target": "api::project-team.project-team",
       "mappedBy": "tasks"
+    },
+    "sub_contractor": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::sub-contractor.sub-contractor",
+      "inversedBy": "tasks"
+    },
+    "drawing_code": {
+      "type": "string",
+      "description": "Code extracted from the linked document (e.g., 'A-106')",
+      "required": true,
+      "default": "A-106"
+    },
+    "drawing_url": {
+      "type": "string",
+      "description": "URL to the drawing document"
+    },
+    "drawing_codes": {
+      "type": "json",
+      "description": "Array of codes extracted from documents with page numbers",
+      "required": false
     }
   }
 }

@@ -1,5 +1,5 @@
 {
-  "/tasks": {
+  "/tasks/sub-contractor/{subContractorId}": {
     "get": {
       "responses": {
         "200": {
@@ -7,7 +7,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/TaskListResponse"
+                "$ref": "#/components/schemas/TaskResponse"
               }
             }
           }
@@ -68,110 +68,20 @@
       ],
       "parameters": [
         {
-          "name": "sort",
-          "in": "query",
-          "description": "Sort by attributes ascending (asc) or descending (desc)",
+          "name": "subContractorId",
+          "in": "path",
+          "description": "",
           "deprecated": false,
-          "required": false,
+          "required": true,
           "schema": {
-            "type": "string"
-          }
-        },
-        {
-          "name": "pagination[withCount]",
-          "in": "query",
-          "description": "Return page/pageSize (default: true)",
-          "deprecated": false,
-          "required": false,
-          "schema": {
-            "type": "boolean"
-          }
-        },
-        {
-          "name": "pagination[page]",
-          "in": "query",
-          "description": "Page number (default: 0)",
-          "deprecated": false,
-          "required": false,
-          "schema": {
-            "type": "integer"
-          }
-        },
-        {
-          "name": "pagination[pageSize]",
-          "in": "query",
-          "description": "Page size (default: 25)",
-          "deprecated": false,
-          "required": false,
-          "schema": {
-            "type": "integer"
-          }
-        },
-        {
-          "name": "pagination[start]",
-          "in": "query",
-          "description": "Offset value (default: 0)",
-          "deprecated": false,
-          "required": false,
-          "schema": {
-            "type": "integer"
-          }
-        },
-        {
-          "name": "pagination[limit]",
-          "in": "query",
-          "description": "Number of entities to return (default: 25)",
-          "deprecated": false,
-          "required": false,
-          "schema": {
-            "type": "integer"
-          }
-        },
-        {
-          "name": "fields",
-          "in": "query",
-          "description": "Fields to return (ex: title,author)",
-          "deprecated": false,
-          "required": false,
-          "schema": {
-            "type": "string"
-          }
-        },
-        {
-          "name": "populate",
-          "in": "query",
-          "description": "Relations to return",
-          "deprecated": false,
-          "required": false,
-          "schema": {
-            "type": "string"
-          }
-        },
-        {
-          "name": "filters",
-          "in": "query",
-          "description": "Filters to apply",
-          "deprecated": false,
-          "required": false,
-          "schema": {
-            "type": "object",
-            "additionalProperties": true
-          },
-          "style": "deepObject"
-        },
-        {
-          "name": "locale",
-          "in": "query",
-          "description": "Locale to apply",
-          "deprecated": false,
-          "required": false,
-          "schema": {
-            "type": "string"
+            "type": "number"
           }
         }
       ],
-      "operationId": "get/tasks"
-    },
+      "operationId": "get/tasks/sub-contractor/{subContractorId}"
+    }
+  },
+  "/tasks/assign-contractor/{contractorId}": {
     "post": {
       "responses": {
         "200": {
@@ -238,8 +148,19 @@
       "tags": [
         "Task"
       ],
-      "parameters": [],
-      "operationId": "post/tasks",
+      "parameters": [
+        {
+          "name": "contractorId",
+          "in": "path",
+          "description": "",
+          "deprecated": false,
+          "required": true,
+          "schema": {
+            "type": "number"
+          }
+        }
+      ],
+      "operationId": "post/tasks/assign-contractor/{contractorId}",
       "requestBody": {
         "required": true,
         "content": {
@@ -252,7 +173,7 @@
       }
     }
   },
-  "/tasks/{id}": {
+  "/tasks/check-contractor-assignment/{projectId}/{subContractorId}": {
     "get": {
       "responses": {
         "200": {
@@ -321,7 +242,7 @@
       ],
       "parameters": [
         {
-          "name": "id",
+          "name": "projectId",
           "in": "path",
           "description": "",
           "deprecated": false,
@@ -329,79 +250,9 @@
           "schema": {
             "type": "number"
           }
-        }
-      ],
-      "operationId": "get/tasks/{id}"
-    },
-    "put": {
-      "responses": {
-        "200": {
-          "description": "OK",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/TaskResponse"
-              }
-            }
-          }
         },
-        "400": {
-          "description": "Bad Request",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Error"
-              }
-            }
-          }
-        },
-        "401": {
-          "description": "Unauthorized",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Error"
-              }
-            }
-          }
-        },
-        "403": {
-          "description": "Forbidden",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Error"
-              }
-            }
-          }
-        },
-        "404": {
-          "description": "Not Found",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Error"
-              }
-            }
-          }
-        },
-        "500": {
-          "description": "Internal Server Error",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Error"
-              }
-            }
-          }
-        }
-      },
-      "tags": [
-        "Task"
-      ],
-      "parameters": [
         {
-          "name": "id",
+          "name": "subContractorId",
           "in": "path",
           "description": "",
           "deprecated": false,
@@ -411,98 +262,7 @@
           }
         }
       ],
-      "operationId": "put/tasks/{id}",
-      "requestBody": {
-        "required": true,
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/TaskRequest"
-            }
-          }
-        }
-      }
-    },
-    "delete": {
-      "responses": {
-        "200": {
-          "description": "OK",
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "integer",
-                "format": "int64"
-              }
-            }
-          }
-        },
-        "400": {
-          "description": "Bad Request",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Error"
-              }
-            }
-          }
-        },
-        "401": {
-          "description": "Unauthorized",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Error"
-              }
-            }
-          }
-        },
-        "403": {
-          "description": "Forbidden",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Error"
-              }
-            }
-          }
-        },
-        "404": {
-          "description": "Not Found",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Error"
-              }
-            }
-          }
-        },
-        "500": {
-          "description": "Internal Server Error",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Error"
-              }
-            }
-          }
-        }
-      },
-      "tags": [
-        "Task"
-      ],
-      "parameters": [
-        {
-          "name": "id",
-          "in": "path",
-          "description": "",
-          "deprecated": false,
-          "required": true,
-          "schema": {
-            "type": "number"
-          }
-        }
-      ],
-      "operationId": "delete/tasks/{id}"
+      "operationId": "get/tasks/check-contractor-assignment/{projectId}/{subContractorId}"
     }
   }
 }
