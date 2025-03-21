@@ -138,33 +138,38 @@ module.exports = createCoreController('api::project.project', ({ strapi }) => ({
       const processedDocuments = [];
       if (files) {
         for (const file of files) {
-          // Extract document codes using OCR
-          const documentCodes = await extractDocumentCodes(file);
-          console.log('[Project Controller] Extracted document codes:', documentCodes);
-          
-          // Upload file to Strapi media library
-          const uploadedFile = await strapi.plugins.upload.services.upload.upload({
-            data: {},
-            files: file
-          });
+          try {
+            // Extract document codes using OCR
+            const documentCodes = await extractDocumentCodes(file);
+            console.log('[Project Controller] Extracted document codes:', documentCodes);
+            
+            // Upload file to Strapi media library
+            const uploadedFile = await strapi.plugins.upload.services.upload.upload({
+              data: {},
+              files: file
+            });
 
-          const fileUrl = uploadedFile[0].url;
-          
-          // Create document entry with all codes
-          processedDocuments.push({
-            document: uploadedFile[0].id,
-            document_codes: documentCodes,
-            document_type: 'drawing',
-            metadata: {
-              originalName: file.name,
-              mimeType: file.type,
-              size: file.size,
-              url: fileUrl
-            }
-          });
+            const fileUrl = uploadedFile[0].url;
+            
+            // Create document entry with all codes
+            processedDocuments.push({
+              document: uploadedFile[0].id,
+              document_codes: documentCodes,
+              document_type: 'drawing',
+              metadata: {
+                originalName: file.name,
+                mimeType: file.type,
+                size: file.size,
+                url: fileUrl
+              }
+            });
 
-          // Update tasks with drawing codes and URLs
-          await this.updateTasksWithDrawings(id, documentCodes, fileUrl);
+            // Update tasks with drawing codes and URLs
+            await this.updateTasksWithDrawings(id, documentCodes, fileUrl);
+          } catch (error) {
+            console.error('[Project Controller] Failed to process file:', file.name, error);
+            // Continue with next file instead of failing completely
+          }
         }
       }
 

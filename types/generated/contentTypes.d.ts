@@ -1089,12 +1089,12 @@ export interface ApiProjectProject extends Schema.CollectionType {
       'manyToMany',
       'api::project-team.project-team'
     >;
-    project_documents: Attribute.Component<'documents.project-document', true>;
     tasks: Attribute.Relation<
       'api::project.project',
       'oneToMany',
       'api::task.task'
     >;
+    project_documents: Attribute.Component<'documents.project-document', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1295,9 +1295,9 @@ export interface ApiStandardTaskStandardTask extends Schema.CollectionType {
       'api::task.task'
     >;
     Urls: Attribute.String;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
     code: Attribute.String & Attribute.Required & Attribute.DefaultTo<'A-100'>;
     drawing_code: Attribute.String;
-    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

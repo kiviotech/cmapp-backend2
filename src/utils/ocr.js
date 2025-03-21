@@ -46,28 +46,31 @@ async function extractDocumentCodes(file) {
       }
     } else {
       console.log('[OCR Utility] Processing image file');
-      const worker = await createWorker({
-        logger: msg => console.log('[Tesseract Worker]', msg)
-      });
+      const worker = await createWorker();
 
-      await worker.loadLanguage('eng');
-      await worker.initialize('eng');
-      
-      await worker.setParameters({
-        tessedit_char_whitelist: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-.',
-      });
-
-      const { data } = await worker.recognize(file.path);
-      const codes = extractCodesFromText(data.text);
-      
-      if (codes.length > 0) {
-        extractedCodes.push({
-          page: 1,
-          codes: codes
+      try {
+        await worker.loadLanguage('eng');
+        await worker.initialize('eng');
+        
+        // Updated parameters to include more characters
+        await worker.setParameters({
+          tessedit_char_whitelist: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-.',
+          tessedit_pageseg_mode: '1',  // Automatic page segmentation
+          tessedit_ocr_engine_mode: '1' // Neural net LSTM only
         });
+
+        const { data } = await worker.recognize(file.path);
+        const codes = extractCodesFromText(data.text);
+        
+        if (codes.length > 0) {
+          extractedCodes.push({
+            page: 1,
+            codes: codes
+          });
+        }
+      } finally {
+        await worker.terminate();
       }
-      
-      await worker.terminate();
     }
 
     console.log('[OCR Utility] Extracted codes:', extractedCodes);
@@ -79,8 +82,25 @@ async function extractDocumentCodes(file) {
 }
 
 function extractCodesFromText(text) {
-  const codeRegex = /[A-Z]-\d{3}/g;
-  return [...new Set(text.match(codeRegex) || [])];
+  // Common sheet number patterns
+  const patterns = [
+    /[A-Z]-\d{3}/g,           // Format: A-101
+    /[A-Z]\d{1,2}\.\d{1,2}/g, // Format: S1.1
+    /[A-Z]\d{3}/g,            // Format: A101
+    /[A-Z]-\d{2}/g,           // Format: A-01
+    /[A-Z]\d{2}/g,            // Format: A01
+    /[A-Z]-[A-Z]\d{2}/g,      // Format: A-B01
+    /[A-Z][A-Z]\d{2}/g        // Format: AB01
+  ];
+
+  // Find all matches for each pattern
+  const allMatches = patterns.flatMap(pattern => {
+    const matches = text.match(pattern) || [];
+    return [...new Set(matches)]; // Remove duplicates within each pattern
+  });
+
+  // Remove duplicates across all patterns and sort
+  return [...new Set(allMatches)].sort();
 }
 
 module.exports = {
