@@ -1,0 +1,25 @@
+---
+description: Strapi content-type and custom route conventions for Cmapp
+globs: src/api/**/*.js,src/api/**/*.json,src/extensions/**/*.json
+alwaysApply: false
+---
+
+# Strapi conventions
+
+Each API under `src/api/<name>/` has `content-types/<name>/schema.json`, plus `controllers/`, `routes/`, `services/`. Prefer `createCoreRouter` / `createCoreController` unless customizing.
+
+## Custom routes
+
+Export `{ type: 'content-api', routes: [...] }` so paths mount under `/api`. Extra files in `routes/` (e.g. `custom-routes.js`) are also loaded.
+
+## Relations (keep in sync)
+
+- Project → contractors, approvers (project-team), tasks, project_inspections, HomeBuyer (user)
+- Task → project, standard_task, contractor (M2M), sub_contractor, submissions, project_team_member
+- Registration → sub_contractor, status pending/approved/rejected (onboarding, not Strapi users-permissions register)
+- Submission → task, submitted_by, proofOfWork media, status pending/approved/rejected
+- User → user_group → designation + access-control flags
+
+## Known schema gaps
+
+Task controller may set `assigned_date` (not on schema). User has no `contractor` relation though task code assumes it. Project documents component field is `document_code` (singular).

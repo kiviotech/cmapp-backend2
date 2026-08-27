@@ -1,0 +1,26 @@
+---
+description: Strapi backend overview, stack, run commands, and security notes
+alwaysApply: true
+---
+
+# Cmapp backend (Strapi 4.25.9)
+
+Repo: `/Users/prithvirajpillai/Documents/work/cmapp-backend2`. Branch: `latestwithcustom`. Pairs with Expo app `Cmapp`.
+
+- Node `>=18 <=20`. SQLite default: `.tmp/data.db`. Port **1339** (`HOST`/`PORT` in `.env`).
+- Run: `npm run develop` → API `http://localhost:1339/api`, admin `/admin`, docs `/documentation`.
+- Never commit `.env` or `config/google-credentials.json`.
+
+## Domain
+
+Projects spawn tasks from **standard-tasks**. Contractors submit **submissions** (proof). PMs approve **registrations** and submissions. Inspections: standard form → project inspection → checklist responses. OCR extracts drawing codes (`[A-Z]-\\d{3}`) from PDFs.
+
+## Custom code
+
+- Task: `src/api/task/` (assignment routes + `bootstrap.js` permission seed)
+- Project: create auto-generates tasks; document upload + Google Drive import
+- User extended in `src/extensions/users-permissions/`
+
+## Caution
+
+Task/project custom routes use `auth: false`. Bootstrap also seeds **public** task permissions. `config/api.js` `maxLimit: 5`. CORS must include Expo web `http://localhost:8085`.
